@@ -121,5 +121,6 @@ AWS　（ファイルサーバー）
 一度Railsでアプリを作り上げてから、Reactを部分的に移行していく予定です。
 
 ### 画面遷移図
-
 https://www.figma.com/file/Cldsxn1deX6zVdUcbGXV6Q/%E7%84%A1%E9%A1%8C?type=design&node-id=0%3A1&mode=design&t=pWd2glzr31Oa9JrN-1
+### ER図
+https://www.figma.com/file/VOdO7rGpB9d7oM4vv0c8NL/Untitled?type=design&node-id=0%3A1&mode=design&t=KQJJWzi9RALbU0od-1
