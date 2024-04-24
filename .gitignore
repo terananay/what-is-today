@@ -10,6 +10,7 @@
 # Ignore all environment files (except templates).
 /.env*
 !/.env*.erb
+!/.env.sample
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -33,3 +34,29 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/credentials.yml.enc
+
+# Ignore the specific database config file.
+/config/database.yml
+
+# Ignore other unneeded files.
+doc/
+*.swp
+*~
+.project
+.DS_Store
+.idea
+.secret
+
+# Ignore bundler gems.
+/vendor/bundle
+
+# Ignore files related to IDE
+/.vscode
+/.idea/
+/.rubymine*
+/.ruby-version
+/.ruby-gemset
+
+# Ignore precompiled assets for production environment
+/public/assets
