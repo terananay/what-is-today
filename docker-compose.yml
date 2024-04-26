@@ -6,12 +6,13 @@ services:
     volumes:
       - postgresql_data:/var/lib/postgresql
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       TZ: "Asia/Tokyo"
     ports:
       - 5432:5432
   web:
+    env_file: .env
     build:
       context: .
       dockerfile: Dockerfile.dev
