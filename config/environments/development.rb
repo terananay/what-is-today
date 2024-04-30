@@ -75,4 +75,6 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  config.google_callback_url = 'http://localhost:3000/oauth/callback?provider=google'
 end

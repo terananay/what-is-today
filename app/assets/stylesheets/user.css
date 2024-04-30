@@ -1,0 +1,24 @@
+.line-div {
+  position: relative;
+  text-align: center;
+}
+
+.line-div::before,
+.line-div::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  height: 1px;
+  background: black;
+}
+
+.line-div::before {
+  left: 0;
+  margin-left: 105%; /* 線とテキストの間隔 */
+}
+
+.line-div::after {
+  right: 0;
+  margin-right: 105%; /* 線とテキストの間隔 */
+}
