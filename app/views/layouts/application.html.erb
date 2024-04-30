@@ -10,10 +10,17 @@
     <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/css/uikit.min.css' %>
     <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/js/uikit.min.js' %>
     <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/js/uikit-icons.min.js' %>
+    <%= javascript_include_tag "https://accounts.google.com/gsi/client", async: true, defer: true %>
     <%= javascript_importmap_tags %>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100..900&display=swap" rel="stylesheet">
   </head>
 
   <body>
+    <%= render 'shared/header' %>
     <%= yield %>
   </body>
 </html>

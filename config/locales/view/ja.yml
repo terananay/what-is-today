@@ -1,0 +1,25 @@
+ja:
+  helpers:
+    submit:
+      user:
+        create: 新規登録
+        update: 更新
+  link:
+    user_create: 新規登録
+    login: ログイン
+    logout: ログアウト
+  users:
+    new:
+      title: ユーザー新規登録
+      or: または
+  user_sessions:
+    new:
+      title: ログイン
+  flash:
+    login: ログインしました
+    login_failed: メールアドレスまたはパスワードが間違っています
+    logout: ログアウトしました
+    user_create: ユーザー登録が完了しました
+    user_failed: ユーザー登録に失敗しました
+    google_login: Googleアカウントでログインしました
+    google_failed: Googleアカウントでのログインに失敗しました

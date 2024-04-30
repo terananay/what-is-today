@@ -94,4 +94,6 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  config.google_callback_url = 'http://localhost:3000/oauth/callback?provider=google'
 end
