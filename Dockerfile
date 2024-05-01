@@ -4,6 +4,7 @@
 ARG RUBY_VERSION=3.3.0
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
+RUN apt-get install -y libvips
 # Rails app lives here
 WORKDIR /rails
 
