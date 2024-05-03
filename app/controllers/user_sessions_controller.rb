@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # app/controllers/user_sessions_controller.rb
 class UserSessionsController < ApplicationController
   skip_before_action :require_login, except: [:destroy]
@@ -8,7 +10,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to root_path , success: t('flash.login')
+      redirect_back_or_to calendar_pictures_path, success: t('flash.login')
     else
       flash.now[:danger] = t('flash.login_failed')
       render :new, status: :unprocessable_entity
@@ -17,6 +19,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to root_path, status: :see_other , success: t('flash.logout')
+    redirect_to root_path, status: :see_other, success: t('flash.logout')
   end
 end

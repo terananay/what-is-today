@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# controllers/users_controller.rb
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
   def new
@@ -9,10 +12,10 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       auto_login(@user)
-      redirect_to root_path, success: t('flash.user_create')
+      redirect_to calendar_pictures_path, success: t('flash.user_create')
     else
       flash.now[:danger] = t('flash.user_failed')
-      render :new , status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

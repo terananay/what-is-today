@@ -1,0 +1,12 @@
+<h1 class="h1 uk-padding"><%= t ".title" %></h1>
+<p>複数の写真を選択してアップロードできます。
+<br>ファイルの形式はjpeg, pngのいずれかが可能です。</p>
+
+<%= form_with(model: @picture, url: pictures_path, local: true) do |f| %>
+  <div class="uk-margin">
+    <%= f.file_field :picture, multiple: true, direct_upload: true %>
+  </div>
+  <div class="uk-margin">
+    <%= f.submit t('helpers.submit.save'), class: "uk-button uk-button-primary" %>
+  </div>
+<% end %>

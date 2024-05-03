@@ -1,13 +1,15 @@
 ja:
   helpers:
     submit:
-      user:
-        create: 新規登録
-        update: 更新
+      create: 新規登録
+      update: 更新
+      save: 保存
+      login: ログイン
   link:
     user_create: 新規登録
     login: ログイン
     logout: ログアウト
+    new_picture: 新規写真登録
   users:
     new:
       title: ユーザー新規登録
@@ -15,6 +17,11 @@ ja:
   user_sessions:
     new:
       title: ログイン
+  pictures:
+    new:
+      title: 画像アップロード
+    calendar:
+      title: 写真カレンダー
   flash:
     login: ログインしました
     login_failed: メールアドレスまたはパスワードが間違っています

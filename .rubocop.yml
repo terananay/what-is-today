@@ -1,0 +1,7 @@
+AllCops:
+  Exclude:
+    - "db/*"
+    - "db/migrate/*"
+    - "bin/*"
+    - "config/initializers/*"
+    - "config/environments/*"
