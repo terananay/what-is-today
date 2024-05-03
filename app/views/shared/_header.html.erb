@@ -1,1 +1,9 @@
-<%= link_to 'about', root_path %>
+<div class="uk-flex uk-flex-between">
+  <%= link_to 'about', root_path %>
+  <% if current_user %>
+    <%= current_user.email.split('@').first %>
+    <%= link_to t('link.new_picture'), new_picture_path %>
+  <% else %>
+    ログインしていません
+  <% end %>
+</div>

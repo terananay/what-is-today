@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# controllers/oauthes_controller.rb
 class OauthsController < ApplicationController
   skip_before_action :require_login
   def oauth
@@ -5,16 +8,15 @@ class OauthsController < ApplicationController
   end
 
   def callback
-    provider = auth_params[:provider]
     # すでにユーザー登録があればログイン
-    if (@user = login_from(provider))
+    if (@user = login_from(auth_params[:provider]))
       redirect_to root_path, success: t('flash.google_login')
     else
       begin
         # 新規ユーザーを作成してログイン
-        signup_and_login(provider)
+        signup_and_login(auth_params[:provider])
         redirect_to root_path, success: t('flash.google_login')
-      rescue
+      rescue StandardError
         redirect_to root_path, danger: t('flash.google_failed')
       end
     end

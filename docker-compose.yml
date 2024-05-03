@@ -4,11 +4,12 @@ services:
     image: postgres
     restart: always
     volumes:
-      - postgresql_data:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       TZ: "Asia/Tokyo"
+      PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - 5432:5432
   web:
