@@ -4,9 +4,10 @@
 
 <%= form_with(model: @picture, url: pictures_path, local: true) do |f| %>
   <div class="uk-margin">
-    <%= f.file_field :picture, multiple: true, direct_upload: true %>
+    <%= f.file_field :images, multiple: true %>
   </div>
   <div class="uk-margin">
     <%= f.submit t('helpers.submit.save'), class: "uk-button uk-button-primary" %>
   </div>
 <% end %>
+<%= link_to t('link.calender'), calendar_pictures_path, class: 'uk-margin' %>

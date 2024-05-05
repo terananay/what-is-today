@@ -1,0 +1,10 @@
+<h1 class="h1 uk-padding"><%= t ".title" %></h1>
+<% @pictures.each do |picture| %>
+  <% if picture.image.attached? %>
+    <div class="picture">
+      <%= image_tag url_for(picture.image.variant(resize_to_limit: [200, 200])) %>
+      <p><%= picture.title %></p>
+      <p><%= picture.memo %></p>
+    </div>
+  <% end %>
+<% end %>
