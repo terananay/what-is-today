@@ -2,7 +2,7 @@ FROM ruby:3.3.0
 ENV LANG C.UTF-8
 ENV TZ Asia/Tokyo
 RUN apt-get update -qq \
-&& apt-get install -y ca-certificates curl gnupg build-essential libpq-dev libssl-dev vim
+&& apt-get install -y ca-certificates curl gnupg build-essential libvips42 libpq-dev libssl-dev vim
 RUN mkdir /myapp
 WORKDIR /myapp
 RUN gem install bundler

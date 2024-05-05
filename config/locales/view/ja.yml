@@ -10,6 +10,7 @@ ja:
     login: ログイン
     logout: ログアウト
     new_picture: 新規写真登録
+    calender: 写真カレンダー
   users:
     new:
       title: ユーザー新規登録
@@ -30,3 +31,6 @@ ja:
     user_failed: ユーザー登録に失敗しました
     google_login: Googleアカウントでログインしました
     google_failed: Googleアカウントでのログインに失敗しました
+  validate:
+    image_type: JPEG か PNGファイルのみアップロード可能です
+    image_size: 画像サイズは4MBまでです
