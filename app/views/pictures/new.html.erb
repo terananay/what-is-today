@@ -1,13 +1,19 @@
-<h1 class="h1 uk-padding"><%= t ".title" %></h1>
-<p>複数の写真を選択してアップロードできます。
-<br>ファイルの形式はjpeg, pngのいずれかが可能です。</p>
+<h1 class=7h1 uk-padding'><%= t'.title' %></h1>
+<p class='uk-text-center uk-margin-large-bottom'><%= t('.select_multiple') %>
+<br><%= t('.file_format') %>
+<br><%= t('.skip_duplicate') %>
+<br><%= t('.png_date') %></p>
 
+<%= render 'shared/flash_message' %>
 <%= form_with(model: @picture, url: pictures_path, local: true) do |f| %>
-  <div class="uk-margin">
-    <%= f.file_field :images, multiple: true %>
-  </div>
-  <div class="uk-margin">
-    <%= f.submit t('helpers.submit.save'), class: "uk-button uk-button-primary" %>
+<%= render 'shared/error_messages', object: f.object %>
+
+  <label class='file_field' data-controller='picture'>
+    <span class='ml-5' data-picture-target='fileLabel'><%= t'.select' %></span>
+    <%= f.file_field :images, multiple: true,include_hidden: false, class: 'hidden', data: { picture_target: 'fileField' } %>
+  </label>
+  <div class='uk-margin'>
+    <%= f.submit t('helpers.submit.save'), class: 'uk-button uk-button-default' %>
   </div>
 <% end %>
 <%= link_to t('link.calender'), calendar_pictures_path, class: 'uk-margin' %>

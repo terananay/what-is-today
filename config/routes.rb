@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'oauth/callback', to: 'oauths#callback'
   get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
 
-  resources :pictures, only: %i[new create index] do
+  resources :pictures, only: %i[new create index destroy update] do
     get 'calendar', on: :collection
   end
 end
