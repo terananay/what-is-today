@@ -1,0 +1,13 @@
+<div class="uk-card uk-card-default uk-margin-medium-bottom", id="picture-<%= picture.id %>">
+  <div class="uk-card-media-top">
+    <%= image_tag url_for(picture.image.variant(resize_to_limit: [200, 200])) %>
+  </div>
+  <div class="uk-card-body">
+    <p><%= picture.title %></p>
+    <p><%= picture.memo %></p>
+  </div>
+  <div class="uk-flex uk-flex-right">
+    <%= link_to "", picture_path(picture), data: { turbo_method: :patch }, class: "uk-icon-link uk-margin-small-right", "uk-icon" => "file-edit" %>
+    <%= link_to "", picture_path(picture), data: { turbo_method: :delete, turbo_confirm: t('helpers.delete_confirm') }, class: "uk-icon-link", "uk-icon" => "trash" %>
+  </div>
+</div>
