@@ -18,7 +18,7 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential curl git libpq-dev libvips42 node-gyp pkg-config python-is-python3
+    apt-get install --no-install-recommends -y build-essential curl git libpq-dev libvips42 node-gyp pkg-config python-is-python3 exiftool
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -41,7 +41,7 @@ FROM base
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libvips libvips42 postgresql-client && \
+    apt-get install --no-install-recommends -y curl libvips libvips42 postgresql-client exiftool && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
