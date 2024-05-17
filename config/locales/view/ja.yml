@@ -25,7 +25,7 @@ ja:
       select_multiple: "複数の写真を選択してアップロードできます。"
       file_format: "ファイルの形式はjpeg, pngのいずれかが可能です。"
       skip_duplicate: "既に保存済の画像と重複した場合はスキップして保存が行われます。"
-      png_date: "pngファイルの場合は撮影日時が取得できず、本日の日付として扱われます。"
+      png_date: "pngファイルの場合は撮影日時が取得できない為、本日の日付として登録されます。"
       select: 画像を選択する
     calendar:
       title: 写真カレンダー
@@ -45,3 +45,6 @@ ja:
     image_type: JPEG か PNGファイルのみアップロード可能です
     image_size: 画像サイズは4MBまでです
     image_blank: 画像を選択してください
+  date:
+    formats:
+      default: "%Y/%m/%d"

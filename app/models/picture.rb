@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'exifr/jpeg'
+require 'mini_exiftool'
 
 # app/models/picture.rb
 class Picture < ApplicationRecord
@@ -13,7 +13,7 @@ class Picture < ApplicationRecord
   validate :image_size
   validate :image_attached
 
-  before_save :shooting_date
+  before_save :shooting_date_set
 
   scope :checksums, -> { joins(image_attachment: :blob) }
 
@@ -21,10 +21,10 @@ class Picture < ApplicationRecord
 
   private
 
-  def shooting_date
+  def shooting_date_set
     return unless image.attached?
 
-    self.shooting_date = EXIFR::JPEG.new(tempfile_path).date_time || Time.current
+    self.shooting_date = MiniExiftool.new(tempfile_path).create_date || Time.current
   end
 
   def image_content_type

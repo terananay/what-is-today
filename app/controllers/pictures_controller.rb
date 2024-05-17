@@ -2,6 +2,8 @@
 
 # controllers/pictures_controller.rb
 class PicturesController < ApplicationController
+  before_action :set_picture, only: %i[show destroy]
+
   def new
     @picture = Picture.new
   end
@@ -9,6 +11,8 @@ class PicturesController < ApplicationController
   def index
     @pictures = current_user.pictures.with_attached_image
   end
+
+  def show; end
 
   def create
     user_checksums = current_user.pictures.checksums.pluck('active_storage_blobs.checksum')
@@ -21,15 +25,22 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    @picture = current_user.pictures.find(params[:id])
     @picture.destroy
-    flash.now[:success] = t('flash.delete')
+    flash[:success] = t('flash.delete')
+    respond_to do |f|
+      f.turbo_stream
+      f.html { redirect_to pictures_path, status: :see_other }
+    end
   end
 
   private
 
   def picture_params
     params.require(:picture).permit(:title, :memo, images: [])
+  end
+
+  def set_picture
+    @picture = current_user.pictures.find(params[:id])
   end
 
   def params_nil?

@@ -53,7 +53,7 @@ gem 'sorcery', '~> 0.17.0'
 # i18n
 gem 'rails-i18n', '~> 7.0', '>= 7.0.9'
 # 画像処理、情報取得
-gem 'exifr', '~> 1.4'
+gem 'mini_exiftool', '~> 2.10', '>= 2.10.2'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
