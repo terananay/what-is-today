@@ -19,7 +19,6 @@ body {
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  background-image: url("背景.jpg");
 }
 .h1 {
   font-family: "M PLUS 2", sans-serif;
@@ -35,4 +34,8 @@ body {
 }
 .header {
   background-color: #fffefd;
+}
+
+.base_background {
+  background-image: url("背景.jpg");
 }
