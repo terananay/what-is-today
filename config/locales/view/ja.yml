@@ -7,11 +7,16 @@ ja:
       login: ログイン
     delete_confirm: 削除しますか？
   link:
+    home: 今日はにゃんの日？
     user_create: 新規登録
     login: ログイン
     logout: ログアウト
     new_picture: 新規写真登録
     calender: 写真カレンダー
+    pictures: 写真一覧
+    terms_of_service: 利用規約
+    privacy_policy: プライバシーポリシー
+    contact: お問い合わせ
   users:
     new:
       title: ユーザー新規登録
