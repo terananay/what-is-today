@@ -1,9 +1,34 @@
-<div class="header uk-flex uk-flex-between uk-padding-small">
-  <%= link_to 'about', root_path %>
-  <% if current_user %>
-    <%= current_user.email.split('@').first %>
-    <%= link_to t('link.new_picture'), new_picture_path %>
-  <% else %>
-    ログインしていません
-  <% end %>
-</div>
+<nav class="uk-navbar-container" style="background-color: white;">
+  <div class="uk-container">
+    <div uk-navbar>
+      <%= link_to t('link.home'), root_path, class: "uk-navbar-left uk-link-reset" %>
+      <div class="uk-navbar-right">
+        <% if current_user %>
+          <%= current_user.email.split('@').first %>
+          <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href="#"></a>
+          <div class="uk-navbar-dropdown">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+              <li>
+                <%= link_to t('link.new_picture'), new_picture_path %>
+              </li>
+              <li>
+                <%= link_to t('link.calender'), calendar_pictures_path %>
+              </li>
+              <li>
+                <%= link_to t('link.pictures'), pictures_path %>
+              </li>
+              <li>
+                <%= link_to t('link.logout'), logout_path, data: { turbo_method: :delete} %>
+              </li>
+            </ul>
+          </div>
+        <% else %>
+          <ul class="uk-navbar-nav">
+            <li><%= link_to t('link.login'), login_path %></li>
+            <li><%= link_to t('link.user_create'), new_user_path %></li>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
+
