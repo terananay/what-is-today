@@ -2,7 +2,7 @@
 
 # controllers/pictures_controller.rb
 class PicturesController < ApplicationController
-  before_action :set_picture, only: %i[show destroy]
+  before_action :set_picture, only: %i[show edit edit_cancel update destroy]
 
   def new
     @picture = Picture.new
@@ -14,6 +14,10 @@ class PicturesController < ApplicationController
 
   def show; end
 
+  def edit; end
+
+  def edit_cancel; end
+
   def create
     user_checksums = current_user.pictures.checksums.pluck('active_storage_blobs.checksum')
     if process_images(user_checksums)
@@ -22,6 +26,10 @@ class PicturesController < ApplicationController
       flash.now[:error] = t('flash.picture_failed')
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @picture.update(picture_params)
   end
 
   def destroy

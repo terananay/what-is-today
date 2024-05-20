@@ -20,13 +20,13 @@ body {
   font-weight: 300;
   font-style: normal;
 }
-.h1 {
+h1 {
   font-family: "M PLUS 2", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
 }
-.h3 {
+h3 {
   font-family: "M PLUS 2", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -34,4 +34,18 @@ body {
 }
 .base_background {
   background-image: url("背景.jpg");
+}
+.uk-button-primary {
+  background-color: #1eacb4;
+}
+.uk-button-primary:hover {
+  background-color: #009da5;
+}
+.uk-alert-success {
+  background-color: #c8eff0;
+  color: #009da5;
+}
+.uk-alert-danger {
+  background-color: #f7d7d3;
+  color: #d12e1f;
 }

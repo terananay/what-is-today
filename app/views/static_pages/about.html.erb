@@ -1,3 +1,4 @@
+<%= render 'shared/flash_message' %>
 <h1>今日はにゃんの日？</h1>
 <p>色々エラー出ても頑張るにゃん！</p>
 <ul class="uk-flex">
@@ -38,12 +39,3 @@
     <button class="uk-button uk-button-text">Text</button>
     <button class="uk-button uk-button-link">Link</button>
 </p>
-
-<% if logged_in? %>
-  <%= link_to t('link.logout'), logout_path, data: { turbo_method: :delete} %>
-<% else %>
-  <ul class="uk-list uk-margin-left">
-    <li><%= link_to t('link.user_create'), new_user_path %></li>
-    <li><%= link_to t('link.login'), login_path %></li>
-  </ul>
-<% end %>

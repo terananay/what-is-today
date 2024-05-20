@@ -1,5 +1,5 @@
 <%= render 'shared/flash_message' %>
-<h1 class="h1 uk-padding"><%= t ".title" %></h1>
+<h1 class="uk-padding"><%= t ".title" %></h1>
 <%= link_to auth_at_provider_path(provider: :google) do %>
   <%= image_tag('web_light_sq_SI@1x.png', alt: 'Google sign in', class: 'uk-margin') %>
 <% end %>
@@ -7,5 +7,3 @@
 <div class="uk-padding line-div"><%= t'users.new.or' %></div>
 
 <%= render 'form' %>
-<%= link_to t('link.user_create'), new_user_path, class: 'uk-margin' %>
-

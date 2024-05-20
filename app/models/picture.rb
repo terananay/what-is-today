@@ -6,6 +6,8 @@ class Picture < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
+  validates :title, length: { maximum: 25 }
+  validates :memo, length: { maximum: 200 }
   validates :is_sample, inclusion: { in: [true, false] }
   validates :shooting_date, presence: true
   attribute :shooting_date, :datetime, default: -> { Time.current }
