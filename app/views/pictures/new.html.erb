@@ -1,8 +1,10 @@
-<h1 class=7h1 uk-padding'><%= t'.title' %></h1>
-<p class='uk-text-center uk-margin-large-bottom'><%= t('.select_multiple') %>
-<br><%= t('.file_format') %>
-<br><%= t('.skip_duplicate') %>
-<br><%= t('.png_date') %></p>
+<h1><%= t'.title' %></h1>
+<ul class='uk-list uk-width-large uk-margin-large'>
+  <li><%= t('.select_multiple') %></li>
+  <li><%= t('.file_format') %></li>
+  <li><%= t('.skip_duplicate') %></li>
+  <li><%= t('.png_date') %></li>
+</ul>
 
 <%= render 'shared/flash_message' %>
 <%= form_with(model: @picture, url: pictures_path, local: true) do |f| %>
@@ -13,7 +15,6 @@
     <%= f.file_field :images, multiple: true,include_hidden: false, class: 'hidden', data: { picture_target: 'fileField' } %>
   </label>
   <div class='uk-margin'>
-    <%= f.submit t('helpers.submit.save'), class: 'uk-button uk-button-default' %>
+    <%= f.submit t('helpers.submit.save'), class: 'uk-button uk-button-primary' %>
   </div>
 <% end %>
-<%= link_to t('link.calender'), calendar_pictures_path, class: 'uk-margin' %>

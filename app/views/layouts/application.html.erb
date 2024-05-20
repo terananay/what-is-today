@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/css/uikit.min.css' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/js/uikit.min.js' %>
     <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/uikit@3.19.4/dist/js/uikit-icons.min.js' %>
     <%= javascript_include_tag "https://accounts.google.com/gsi/client", async: true, defer: true %>
@@ -21,7 +21,7 @@
 
   <body>
     <%= render 'shared/header' %>
-    <div class="base_background uk-background-cover uk-background-top-left">
+    <div class="base_background uk-background-cover uk-background-top-right">
       <div class=" uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-height-viewport uk-padding-small">
         <%= yield %>
       </div>

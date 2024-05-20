@@ -17,6 +17,7 @@ ja:
     terms_of_service: 利用規約
     privacy_policy: プライバシーポリシー
     contact: お問い合わせ
+    cancel: キャンセル
   users:
     new:
       title: ユーザー新規登録
@@ -34,6 +35,8 @@ ja:
       select: 画像を選択する
     calendar:
       title: 写真カレンダー
+    index:
+      title: 写真一覧
   flash:
     login: ログインしました
     login_failed: メールアドレスまたはパスワードが間違っています
@@ -46,6 +49,7 @@ ja:
     picture_create: 画像をアップロードしました
     picture_failed: 保存できない画像があり中断しました。中断する前までの画像は保存されています。
     delete: 削除しました
+    update: 更新しました
   validate:
     image_type: JPEG か PNGファイルのみアップロード可能です
     image_size: 画像サイズは4MBまでです

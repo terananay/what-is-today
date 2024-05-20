@@ -1,0 +1,5 @@
+<% if @picture.errors.any? %>
+  <%= turbo_stream.replace dom_id(@picture, :edit), partial: 'form', locals: { picture: @picture, picture_id_edit: dom_id(@picture, :edit) } %>
+<% else %>
+  <%= turbo_stream.replace @picture, partial: 'picture', locals: { picture: @picture } %>
+<% end %>

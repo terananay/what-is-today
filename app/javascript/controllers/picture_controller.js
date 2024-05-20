@@ -15,4 +15,9 @@ export default class extends Controller {
     let selectedFileCount = this.fileFieldTarget.files.length;
     this.fileLabelTarget.textContent = selectedFileCount + " 個の画像を選択しています";
   }
+
+  clearText(e) {
+    e.preventDefault();
+    e.currentTarget.previousElementSibling.value = '';
+  }
 }

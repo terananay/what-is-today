@@ -1,0 +1,16 @@
+<%= render 'shared/flash_message' %>
+<%= form_with model: picture, data: { controller: "picture" } do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="uk-inline uk-width-1-1">
+    <%= f.text_field :title, class: 'uk-input', placeholder: 'title' %>
+    <a href="#" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: close" data-action="click->picture#clearText"></a>
+  </div>
+  <div class="uk-inline uk-width-1-1">
+    <%= f.text_area :memo, class: 'uk-textarea', placeholder: 'memo', rows: 3 %>
+    <a href="#" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: close" data-action="click->picture#clearText"></a>
+  </div>
+  <div class="uk-flex uk-margin-small-top">
+    <%= f.submit t('helpers.submit.update'), class: 'uk-button uk-margin-small-right uk-button-primary uk-button-small' %>
+    <%= link_to t('link.cancel'), edit_cancel_picture_path(picture), data: { turbo_stream: true }, class: 'uk-button uk-button-default uk-button-small' %>
+  </div>
+<% end %>
