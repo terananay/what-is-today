@@ -15,7 +15,7 @@
     <p class="uk-align-right uk-padding-small uk-padding-remove-top uk-margin-remove uk-text-small">
       <%= l(picture.shooting_date.to_date) %>
     </p>
-    <%= link_to "", edit_picture_path(picture), data: { turbo_stream: true }, class: "uk-icon-link uk-margin-small-right", "uk-icon" => "file-edit" %>
-    <%= link_to "", picture_path(picture), data: { turbo_method: :delete, turbo_confirm: t('helpers.picture_delete_confirm') }, class: "uk-icon-link", "uk-icon" => "trash" %>
+    <%= link_to "", edit_picture_path(picture, format: :turbo_stream), data: { turbo_stream: true }, class: "uk-icon-link uk-margin-small-right", "uk-icon" => "file-edit" %>
+    <%= link_to "", picture_path(picture, format: :turbo_stream), data: { turbo_method: :delete, turbo_confirm: t('helpers.picture_delete_confirm') }, class: "uk-icon-link", "uk-icon" => "trash" %>
   </div>
 </div>
