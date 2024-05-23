@@ -3,6 +3,7 @@
 require_relative 'boot'
 
 require 'rails/all'
+require "turbo-rails"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
