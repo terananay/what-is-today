@@ -14,9 +14,13 @@ class PicturesController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    @is_show_page = params[:from] == 'show'
+  end
 
-  def edit_cancel; end
+  def edit_cancel
+    @is_show_page = params[:from] == 'show'
+  end
 
   def create
     user_checksums = current_user.pictures.checksums.pluck('active_storage_blobs.checksum')
@@ -30,11 +34,12 @@ class PicturesController < ApplicationController
 
   def update
     @picture.update(picture_params)
+    @is_show_page = params[:picture][:from] == 'show'
   end
 
   def destroy
     @picture.destroy
-    flash[:success] = t('flash.delete')
+    flash.now[:success] = t('flash.delete')
     respond_to do |f|
       f.turbo_stream
       f.html { redirect_to pictures_path, status: :see_other }

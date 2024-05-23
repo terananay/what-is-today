@@ -1,17 +1,7 @@
 <div class="uk-container-expand">
   <%= render 'shared/flash_message' %>
-  <div class="">
-    <%= image_tag url_for(@picture.image) %>
-  </div>
-  <div class="uk-card uk-card-default uk-card-body uk-margin-small">
-    <p class="uk-align-right uk-padding-small uk-padding-remove-top uk-margin-remove uk-text-small">
-      <%= l(@picture.shooting_date.to_date) %>
-    </p>
-    <h3 class="uk-card-title"><%= @picture.title %></h3>
-    <p><%= @picture.memo %></p>
-    <div class="uk-flex uk-flex-right uk-width-1-1 white">
-      <%= link_to "", picture_path(@picture), data: { turbo_method: :patch }, class: "uk-icon-link uk-margin-small-right", "uk-icon" => "file-edit" %>
-      <%= link_to "", picture_path(@picture, format: :html), data: { turbo_method: :delete, turbo_confirm: t('helpers.delete_confirm') }, class: "uk-icon-link", "uk-icon" => "trash" %>
-    </div>
-  </div>
+  <%= image_tag url_for(@picture.image), class: 'uk-margin-small-bottom' %>
+
+    <%= render 'show_card_body', picture: @picture %>
+
 </div>
