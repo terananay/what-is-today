@@ -16,10 +16,12 @@ class PicturesController < ApplicationController
 
   def edit
     @is_show_page = params[:from] == 'show'
+    render turbo_stream: 'edit'
   end
 
   def edit_cancel
     @is_show_page = params[:from] == 'show'
+    render turbo_stream: 'edit_cancel'
   end
 
   def create
@@ -35,6 +37,7 @@ class PicturesController < ApplicationController
   def update
     @picture.update(picture_params)
     @is_show_page = params[:picture][:from] == 'show'
+    render turbo_stream: 'update'
   end
 
   def destroy
