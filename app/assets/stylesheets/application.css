@@ -39,7 +39,7 @@ h3 {
   background-color: #1eacb4;
 }
 .uk-button-primary:hover {
-  background-color: #009da5;
+  background-color: #029199;
 }
 .uk-alert-success {
   background-color: #c8eff0;
@@ -48,4 +48,10 @@ h3 {
 .uk-alert-danger {
   background-color: #f7d7d3;
   color: #d12e1f;
+}
+.white-background-button {
+  background-color: rgba(255, 255, 255, 0.864);
+}
+.white-background-button:hover {
+  background-color: rgba(253, 240, 245, 0.965);
 }

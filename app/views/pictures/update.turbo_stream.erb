@@ -1,5 +1,13 @@
-<% if @picture.errors.any? %>
-  <%= turbo_stream.replace dom_id(@picture, :edit), partial: 'form', locals: { picture: @picture, picture_id_edit: dom_id(@picture, :edit) } %>
+<% if @is_show_page %>
+  <% if @picture.errors.any? %>
+    <%= turbo_stream.replace dom_id(@picture, :edit_show_card), partial: 'edit_show', locals: { picture: @picture } %>
+  <% else %>
+    <%= turbo_stream.replace dom_id(@picture, :edit_show), partial: 'show_card_body', locals: { picture: @picture } %>
+  <% end %>
 <% else %>
-  <%= turbo_stream.replace @picture, partial: 'picture', locals: { picture: @picture } %>
+  <% if @picture.errors.any? %>
+    <%= turbo_stream.replace dom_id(@picture, :edit), partial: 'edit_index', locals: { picture: @picture } %>
+  <% else %>
+    <%= turbo_stream.replace @picture, partial: 'picture', locals: { picture: @picture } %>
+  <% end %>
 <% end %>

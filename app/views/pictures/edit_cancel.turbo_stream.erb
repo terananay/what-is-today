@@ -1,1 +1,5 @@
-<%= turbo_stream.replace @picture, partial: 'picture', locals: { picture: @picture } %>
+<% if @is_show_page %>
+  <%= turbo_stream.replace dom_id(@picture, :edit_show), partial: 'show_card_body', locals: { picture: @picture } %>
+<% else %>
+  <%= turbo_stream.replace @picture, partial: 'picture', locals: { picture: @picture } %>
+<% end %>

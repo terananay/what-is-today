@@ -1,0 +1,14 @@
+
+<div id="<%= dom_id(@picture, :edit_show_card) %>">
+  <div class="uk-card uk-card-default uk-card-body">
+    <p class="uk-align-right uk-padding-small uk-padding-remove-top uk-margin-remove uk-text-small">
+      <%= l(picture.shooting_date.to_date) %>
+    </p>
+    <h3 class="uk-card-title"><%= picture.title %></h3>
+    <p><%= picture.memo %></p>
+    <div class="uk-flex uk-flex-right uk-width-1-1 white">
+      <%= link_to "", edit_picture_path(picture, from: 'show'), data: { turbo_stream: true }, class: "uk-icon-link uk-margin-small-right", "uk-icon" => "file-edit" %>
+      <%= link_to "", picture_path(picture, format: :html), data: { turbo_method: :delete, turbo_confirm: t('helpers.picture_delete_confirm') }, class: "uk-icon-link", "uk-icon" => "trash" %>
+    </div>
+  </div>
+</div>
