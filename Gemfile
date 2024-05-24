@@ -54,6 +54,9 @@ gem 'sorcery', '~> 0.17.0'
 gem 'rails-i18n', '~> 7.0', '>= 7.0.9'
 # 画像処理、情報取得
 gem 'mini_exiftool', '~> 2.10', '>= 2.10.2'
+# ページネーション, 検索
+gem 'kaminari', '1.2.2'
+gem 'ransack', '4.1.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

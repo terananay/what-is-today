@@ -1,7 +1,7 @@
-<div class="uk-width-medium" id="<%= dom_id(picture) %>">
+<div id="<%= dom_id(picture) %>">
   <div class="uk-link-reset uk-display-block uk-card uk-card-default uk-width-1-1 uk-margin-small-bottom">
     <%= link_to picture_path(picture), class: "uk-card-media-top uk-flex uk-flex-column" do %>
-      <%= image_tag url_for(picture.image.variant(resize_to_limit: [250, 250])) %>
+      <%= image_tag url_for(picture.image.variant(resize_to_limit: [300, 300])) %>
     <% end %>
       <%= turbo_frame_tag dom_id(picture, :edit) do %>
         <%= link_to picture_path(picture), class: "uk-card-body uk-flex-auto", data: { turbo_frame: '_top' } do %>

@@ -10,3 +10,7 @@
 .hidden {
   display: none !important;
 }
+.uk-card-title {
+  font-size: large;
+  font-weight: 350;
+}

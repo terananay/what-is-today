@@ -18,6 +18,7 @@ class Picture < ApplicationRecord
   before_save :shooting_date_set
 
   scope :checksums, -> { joins(image_attachment: :blob) }
+  scope :desc, -> { order(created_at: :desc) }
 
   attr_accessor :tempfile_path
 
