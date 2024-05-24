@@ -1,5 +1,4 @@
 import { Application } from "@hotwired/stimulus"
-import PictureController from "./picture_controller"
 
 const application = Application.start()
 
