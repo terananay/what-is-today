@@ -9,7 +9,8 @@ class PicturesController < ApplicationController
   end
 
   def index
-    @pictures = current_user.pictures.with_attached_image
+    @q = current_user.pictures.ransack(params[:q])
+    @pictures = @q.result(distinct: true).with_attached_image.desc.page(params[:page]).per(28)
   end
 
   def show; end
