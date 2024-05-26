@@ -18,9 +18,16 @@ class Picture < ApplicationRecord
   before_save :shooting_date_set
 
   scope :checksums, -> { joins(image_attachment: :blob) }
-  scope :desc, -> { order(created_at: :desc) }
 
   attr_accessor :tempfile_path
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title memo shooting_date created_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 
   private
 
@@ -45,4 +52,5 @@ class Picture < ApplicationRecord
   def image_attached
     errors.add(:image, I18n.t('validate.image_blank')) unless image.attached?
   end
+
 end

@@ -53,5 +53,21 @@ h3 {
   background-color: rgba(255, 255, 255, 0.864);
 }
 .white-background-button:hover {
-  background-color: rgba(253, 240, 245, 0.965);
+  background-color: rgba(255, 255, 255, 0.935);
+}
+.white-background {
+  background-color: white;
+}
+
+.sub-color {
+  background-color: #f7d7d3;
+}
+.page.current {
+  padding: 9px;
+}
+.uk-width-1-1\@s {
+  min-width: 350px;
+}
+.uk-flex-row\@s {
+  min-width: 350px;
 }

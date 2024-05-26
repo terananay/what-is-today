@@ -12,7 +12,6 @@ ja:
     login: ログイン
     logout: ログアウト
     new_picture: 新規写真登録
-    calender: 写真カレンダー
     pictures: 写真一覧
     terms_of_service: 利用規約
     privacy_policy: プライバシーポリシー
@@ -37,6 +36,8 @@ ja:
       title: 写真カレンダー
     index:
       title: 写真一覧
+      sort: 並び替え：
+      title_and_memo: タイトル,memo
   flash:
     login: ログインしました
     login_failed: メールアドレスまたはパスワードが間違っています
@@ -45,7 +46,7 @@ ja:
     user_failed: ユーザー登録に失敗しました
     google_login: Googleアカウントでログインしました
     google_failed: Googleアカウントでのログインに失敗しました
-    pleese_login: ログインしてください
+    please_login: ログインしてください
     picture_create: 画像をアップロードしました
     picture_failed: 保存できない画像があり中断しました。中断する前までの画像は保存されています。
     delete: 削除しました

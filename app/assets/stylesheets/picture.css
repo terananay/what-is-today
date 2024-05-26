@@ -14,3 +14,10 @@
   font-size: large;
   font-weight: 350;
 }
+.scroll-top {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 13px 10px;
+}
+.uk-overlay {
+  padding: 5px 5px;
+}

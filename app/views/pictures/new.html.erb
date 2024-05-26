@@ -15,6 +15,6 @@
     <%= f.file_field :images, multiple: true, include_hidden: false, class: 'hidden', data: { picture_target: 'fileField', action: "change->picture#updateFileLabel" } %>
   </label>
   <div class='uk-margin'>
-    <%= f.submit t('helpers.submit.save'), class: 'uk-button uk-button-primary' %>
+    <%= f.submit t('helpers.submit.save'), class: 'uk-border-rounded uk-button uk-button-primary' %>
   </div>
 <% end %>
