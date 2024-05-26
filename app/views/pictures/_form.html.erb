@@ -1,10 +1,10 @@
 <div data-controller="picture">
   <div class="uk-inline uk-width-1-1">
-    <%= f.text_field :title, class: 'uk-input form_clear', placeholder: 'title' %>
+    <%= f.text_field :title, class: 'uk-input form_clear', placeholder: t('activerecord.attributes.picture.title') %>
     <a href="#" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: close" data-action="click->picture#clearText"></a>
   </div>
   <div class="uk-inline uk-width-1-1">
-    <%= f.text_area :memo, class: 'uk-textarea form_clear', placeholder: 'memo', rows: 3 %>
+    <%= f.text_area :memo, class: 'uk-textarea form_clear', placeholder: t('activerecord.attributes.picture.memo'), rows: 3 %>
     <a href="#" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: close" data-action="click->picture#clearText"></a>
   </div>
 </div>
