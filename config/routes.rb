@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
 
   resources :pictures do
-    get 'calendar', on: :collection
+    get 'daily_pictures', on: :collection
     get 'edit_cancel', on: :member
   end
 end

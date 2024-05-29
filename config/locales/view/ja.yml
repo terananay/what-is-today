@@ -13,6 +13,7 @@ ja:
     logout: ログアウト
     new_picture: 新規写真登録
     pictures: 写真一覧
+    daily: 同じ日の思い出
     terms_of_service: 利用規約
     privacy_policy: プライバシーポリシー
     contact: お問い合わせ
@@ -32,8 +33,8 @@ ja:
       skip_duplicate: "既に保存済の画像と重複した場合はスキップして保存が行われます。"
       png_date: "pngファイルの場合は撮影日時が取得できない為、本日の日付として登録されます。"
       select: 画像を選択する
-    calendar:
-      title: 写真カレンダー
+    daily_pictures:
+      title: 同じ日の思い出
     index:
       title: 写真一覧
       sort: 並び替え：

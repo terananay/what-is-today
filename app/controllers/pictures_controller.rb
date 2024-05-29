@@ -3,15 +3,13 @@
 # controllers/pictures_controller.rb
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[show edit edit_cancel update destroy]
+  before_action :search_poictures, only: %i[index daily_pictures]
 
   def new
     @picture = Picture.new
   end
 
-  def index
-    @q = current_user.pictures.ransack(params[:q])
-    @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(12)
-  end
+  def index; end
 
   def show; end
 
@@ -28,7 +26,7 @@ class PicturesController < ApplicationController
   def create
     user_checksums = current_user.pictures.checksums.pluck('active_storage_blobs.checksum')
     if process_images(user_checksums)
-      redirect_to calendar_pictures_path, success: t('flash.picture_create')
+      redirect_to daily_pictures_pictures_path, success: t('flash.picture_create')
     else
       flash.now[:error] = t('flash.picture_failed')
       render :new, status: :unprocessable_entity
@@ -48,6 +46,18 @@ class PicturesController < ApplicationController
       f.turbo_stream
       f.html { redirect_to pictures_path, status: :see_other }
     end
+  end
+
+  def daily_pictures
+    # 基本表示のクエリ
+    result = current_user.pictures.base_scope_and_title
+    @title = result[:title]
+    base_scope = result[:base_scope]
+
+    # 検索がなければ基本を表示
+    search_results_or_base(base_scope)
+    # 年毎に表示
+    @pictures_by_year = @pictures.order(shooting_date: :desc).group_by { |picture| picture.shooting_date.year }
   end
 
   private
@@ -95,5 +105,19 @@ class PicturesController < ApplicationController
     checksum = Digest::MD5.file(image.tempfile.path).base64digest
 
     user_checksums.include?(checksum)
+  end
+
+  def search_poictures
+    @q = current_user.pictures.ransack(params[:q])
+    @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(12)
+  end
+
+  def search_results_or_base(base_scope)
+    if params[:q].blank? || params[:q][:title_or_memo_cont].blank?
+      @q = base_scope.ransack(params[:q])
+      @pictures = @q.result.with_attached_image.page(params[:page]).per(12)
+    else
+      @title = nil
+    end
   end
 end
