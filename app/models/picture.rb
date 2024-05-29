@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'mini_exiftool'
 
 # app/models/picture.rb
@@ -19,17 +20,21 @@ class Picture < ApplicationRecord
 
   scope :checksums, -> { joins(image_attachment: :blob) }
   scope :allyears_on_same_date, lambda {
-    where('EXTRACT(MONTH FROM shooting_date) = ? AND EXTRACT(DAY FROM shooting_date) = ?', Date.today.month, Date.today.day)
+    where(
+      'EXTRACT(MONTH FROM shooting_date) = ? AND EXTRACT(DAY FROM shooting_date) = ?',
+      Date.today.month,
+      Date.today.day
+    )
   }
-  scope :allyears_on_same_month, -> { where('EXTRACT(MONTH FROM shooting_date) = ?', Date.today.month)}
+  scope :allyears_on_same_month, -> { where('EXTRACT(MONTH FROM shooting_date) = ?', Date.today.month) }
 
   attr_accessor :tempfile_path
 
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     %w[title memo shooting_date created_at]
   end
 
-  def self.ransackable_associations(auth_object = nil)
+  def self.ransackable_associations(_auth_object = nil)
     []
   end
 
@@ -41,7 +46,7 @@ class Picture < ApplicationRecord
       base_scope = allyears_on_same_date
       title = "#{Date.today.month}月 #{Date.today.day}日"
     end
-    { base_scope: base_scope, title: title }
+    { base_scope:, title: }
   end
 
   private
@@ -68,5 +73,4 @@ class Picture < ApplicationRecord
   def image_attached
     errors.add(:image, I18n.t('validate.image_blank')) unless image.attached?
   end
-
 end

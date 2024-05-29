@@ -120,5 +120,4 @@ class PicturesController < ApplicationController
       @title = nil
     end
   end
-
 end
