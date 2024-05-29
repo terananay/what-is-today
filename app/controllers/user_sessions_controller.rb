@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to calendar_pictures_path, success: t('flash.login')
+      redirect_back_or_to daily_pictures_pictures_path, success: t('flash.login')
     else
       flash.now[:danger] = t('flash.login_failed')
       render :new, status: :unprocessable_entity

@@ -1,0 +1,15 @@
+<h1 class="uk-border-rounded overlay"><%= @title %></h1>
+<%= render 'shared/flash_message' %>
+<%= render 'search_form', form_url: daily_pictures_pictures_path, class: 'uk-overlay uk-overlay-default' %>
+<div class="uk-width-1-1">
+  <% @pictures_by_year.each do |year, pictures| %>
+    <h3><%= year %></h3>
+    <div class="uk-child-width-1-2 uk-child-width-1-4@m" uk-grid="masonry: pack">
+      <%= render pictures %>
+    </div>
+  <% end %>
+</div>
+<div class="uk-flex uk-flex-middle">
+  <%= paginate @pictures, theme: 'uikit', left: 2, right: 2 %>
+  <a href="#" uk-totop uk-scroll class="pagination scroll-top uk-box-shadow-small uk-border-circle"></a>
+</div>

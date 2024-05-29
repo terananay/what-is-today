@@ -24,7 +24,8 @@ module WhatIsToday
     # These settings can be overridden in specific environments using the files
     # in config/envirgb(223, 198, 195)e processed later.
     #
-    config.time_zone = "Tokyo"
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
     config.generators.system_tests = nil
 

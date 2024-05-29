@@ -1,6 +1,6 @@
-<h1><%= t ".title" %></h1>
+<h1 class="uk-border-rounded overlay"><%= t ".title" %></h1>
 <%= render 'shared/flash_message' %>
-<%= render 'search_form', class: 'uk-overlay uk-overlay-default' %>
+<%= render 'search_form', form_url: pictures_path, class: 'uk-overlay uk-overlay-default' %>
 <div class="uk-width-1-1">
   <div class="uk-child-width-1-2 uk-child-width-1-4@m" uk-grid="masonry: pack">
     <%= render @pictures %>
