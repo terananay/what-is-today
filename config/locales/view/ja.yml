@@ -7,12 +7,12 @@ ja:
       login: ログイン
     picture_delete_confirm: 「画像」を削除します。よろしいですか？
   link:
-    home: 今日はにゃんの日？
+    home: 今日は何の日？
     user_create: 新規登録
     login: ログイン
     logout: ログアウト
     new_picture: 新規写真登録
-    pictures: 写真一覧
+    pictures: 保存済み写真一覧
     daily: 同じ日の思い出
     terms_of_service: 利用規約
     privacy_policy: プライバシーポリシー

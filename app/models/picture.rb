@@ -16,7 +16,7 @@ class Picture < ApplicationRecord
   validate :image_size
   validate :image_attached
 
-  before_save :shooting_date_set
+  before_save :shooting_date_set, if: :new_record?
 
   scope :checksums, -> { joins(image_attachment: :blob) }
   scope :allyears_on_same_date, lambda {
@@ -41,7 +41,7 @@ class Picture < ApplicationRecord
   def self.base_scope_and_title
     if allyears_on_same_date.empty?
       base_scope = allyears_on_same_month
-      title = "#{Date.today.month}月"
+      title = "#{Date.today.month}月の思い出"
     else
       base_scope = allyears_on_same_date
       title = "#{Date.today.month}月 #{Date.today.day}日"
