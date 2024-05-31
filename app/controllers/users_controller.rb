@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       auto_login(@user)
-      redirect_to daily_pictures_pictures_path, success: t('flash.user_create')
+      redirect_to new_picture_path, success: t('flash.user_create')
     else
       flash.now[:danger] = t('flash.user_failed')
       render :new, status: :unprocessable_entity

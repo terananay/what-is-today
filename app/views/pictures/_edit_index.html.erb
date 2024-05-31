@@ -3,8 +3,9 @@
   <%= form_with model: picture do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <%= render 'form', f: f %>
+    <%= f.hidden_field :from, value: from %>
     <div class="uk-flex uk-flex-right uk-margin-small-top uk-margin-small-right">
       <%= f.submit t('helpers.submit.update'), class: 'uk-border-rounded uk-button uk-margin-small-right uk-button-primary uk-button-small' %>
-      <%= link_to t('link.cancel'), edit_cancel_picture_path(picture), data: { turbo_stream: true }, class: 'uk-border-rounded uk-button uk-button-default uk-button-small white-background-button' %>
+      <%= link_to t('link.cancel'), edit_cancel_picture_path(picture, params: { from: from }), data: { turbo_stream: true }, class: 'uk-border-rounded uk-button uk-button-default uk-button-small white-background-button' %>
     </div>
   <% end %>

@@ -1,0 +1,23 @@
+<div class="uk-slider-container-offset uk-width-auto" uk-slider="center: true; autoplay: true; autoplay-interval: 4000; pause-on-hover: false">
+  <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+    <div class="uk-slider-items uk-container-expand uk-grid uk-flex-middle">
+      <% @pictures.each do |picture| %>
+        <div class="uk-container-3-4">
+          <%= image_tag url_for(picture.image), class: 'slide-picture uk-margin-small-bottom' %>
+            <div class="slide-card uk-card uk-card-default uk-card-body uk-margin-small-bottom">
+              <p class="uk-align-right uk-padding-small uk-padding-remove-top uk-margin-remove uk-text-small">
+                <%= l(picture.shooting_date.to_date) %>
+              </p>
+              <h3 class="uk-card-title"><%= picture.title %></h3>
+              <p class="uk-text-break"><%= simple_format(picture.memo) %></p>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  <div class="uk-flex uk-flex-center">
+    <a class="uk-margin-right uk-hidden-hover slide-nav uk-box-shadow-small uk-border-rounded" href uk-slidenav-previous uk-slider-item="previous" style="color: #1eacb4;"></a>
+    <a class="uk-hidden-hover slide-nav uk-box-shadow-small uk-border-rounded" href uk-slidenav-next uk-slider-item="next" style="color: #1eacb4;"></a>
+  </div>
+  </div>
+</div>

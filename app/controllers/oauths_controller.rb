@@ -10,12 +10,12 @@ class OauthsController < ApplicationController
   def callback
     # すでにユーザー登録があればログイン
     if (@user = login_from(auth_params[:provider]))
-      redirect_to root_path, success: t('flash.google_login')
+      redirect_to daily_pictures_pictures_path, success: t('flash.google_login')
     else
       begin
         # 新規ユーザーを作成してログイン
         signup_and_login(auth_params[:provider])
-        redirect_to root_path, success: t('flash.google_login')
+        redirect_to new_picture_path, success: t('flash.google_login')
       rescue StandardError
         redirect_to root_path, danger: t('flash.google_failed')
       end

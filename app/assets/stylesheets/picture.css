@@ -18,6 +18,21 @@
   background-color: rgba(255, 255, 255, 0.7);
   padding: 13px 10px;
 }
+.slide-nav {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 9px 13px;
+}
 .uk-overlay {
   padding: 5px 5px;
+}
+.slide-picture {
+  display: block; /* ブロック要素として表示 */
+  width: 100%; /* 画像の幅を100%に設定 */
+  max-height: 500px;
+}
+
+.slide-card {
+  display: block; /* ブロック要素として表示 */
+  width: 100%; /* 親要素の幅に合わせる */
+  box-sizing: border-box; /* パディングとボーダーを含めた幅計算 */
 }

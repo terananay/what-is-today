@@ -1,5 +1,7 @@
 <% if @is_show_page %>
   <%= turbo_stream.update dom_id(@picture, :edit_show_card), partial: 'edit_show', locals: { picture: @picture } %>
+<% elsif @is_index_page %>
+  <%= turbo_stream.update dom_id(@picture, :edit), partial: 'edit_index', locals: { picture: @picture, from: 'index' } %>
 <% else %>
-  <%= turbo_stream.update dom_id(@picture, :edit), partial: 'edit_index', locals: { picture: @picture } %>
+  <%= turbo_stream.update dom_id(@picture, :edit), partial: 'edit_index', locals: { picture: @picture, from: '' } %>
 <% end %>

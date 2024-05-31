@@ -1,12 +1,12 @@
 <div id="<%= dom_id(picture) %>">
   <div class="uk-link-reset uk-display-block uk-card uk-card-default uk-width-1-1 uk-margin-small-bottom">
-    <%= link_to picture_path(picture), class: "uk-card-media-top uk-flex uk-flex-column" do %>
+    <%= link_to path.call(picture), class: "uk-card-media-top uk-flex uk-flex-column" do %>
       <%= image_tag url_for(picture.image.variant(resize_to_limit: [300, 300])) %>
     <% end %>
       <%= turbo_frame_tag dom_id(picture, :edit) do %>
-        <%= link_to picture_path(picture), class: "uk-card-body uk-flex-auto", data: { turbo_frame: '_top' } do %>
-            <p class="uk-card-title"><%= picture.title %></p>
-            <p class="uk-text-break"><%= simple_format(picture.memo) %></p>
+        <%= link_to path.call(picture), class: "uk-card-body uk-flex-auto", data: { turbo_frame: '_top' } do %>
+          <p class="uk-card-title"><%= picture.title %></p>
+          <p class="uk-text-break"><%= simple_format(picture.memo) %></p>
         <% end %>
       <% end %>
   </div>
@@ -15,7 +15,7 @@
     <p class="uk-align-right uk-margin-remove uk-text-small uk-overlay uk-overlay-default">
       <%= l(picture.shooting_date.to_date) %>
     </p>
-    <%= link_to "", edit_picture_path(picture), data: { turbo_stream: true }, class: "uk-icon-link uk-overlay uk-overlay-default", "uk-icon" => "file-edit" %>
+    <%= link_to "", edit_picture_path(picture, from: from), data: { turbo_stream: true }, class: "uk-icon-link uk-overlay uk-overlay-default", "uk-icon" => "file-edit" %>
     <%= link_to "", picture_path(picture), data: { turbo_method: :delete, turbo_confirm: t('helpers.picture_delete_confirm') }, class: "uk-icon-link uk-overlay uk-overlay-default", "uk-icon" => "trash" %>
   </div>
 </div>

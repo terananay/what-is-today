@@ -1,7 +1,4 @@
 <div class="uk-container-expand">
-  <%= render 'shared/flash_message' %>
   <%= image_tag url_for(@picture.image), class: 'uk-margin-small-bottom' %>
-
-    <%= render 'show_card_body', picture: @picture %>
-
+  <%= render 'show_card_body', picture: @picture %>
 </div>

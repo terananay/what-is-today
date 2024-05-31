@@ -3,7 +3,7 @@
 # controllers/pictures_controller.rb
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[show edit edit_cancel update destroy]
-  before_action :search_poictures, only: %i[index daily_pictures]
+  before_action :search_poictures, only: %i[index daily_pictures slide_show]
 
   def new
     @picture = Picture.new
@@ -15,11 +15,13 @@ class PicturesController < ApplicationController
 
   def edit
     @is_show_page = params[:from] == 'show'
+    @is_index_page = params[:from] == 'index'
     respond_to :turbo_stream
   end
 
   def edit_cancel
     @is_show_page = params[:from] == 'show'
+    @is_index_page = params[:from] == 'index'
     respond_to :turbo_stream
   end
 
@@ -36,6 +38,7 @@ class PicturesController < ApplicationController
   def update
     @picture.update(picture_params)
     @is_show_page = params[:picture][:from] == 'show'
+    @is_index_page = params[:picture][:from] == 'index'
     respond_to :turbo_stream
   end
 
@@ -58,6 +61,10 @@ class PicturesController < ApplicationController
     search_results_or_base(base_scope)
     # 年毎に表示
     @pictures_by_year = @pictures.order(shooting_date: :desc).group_by { |picture| picture.shooting_date.year }
+  end
+
+  def slide_show
+
   end
 
   private

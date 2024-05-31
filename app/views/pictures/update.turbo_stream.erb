@@ -4,10 +4,16 @@
   <% else %>
     <%= turbo_stream.replace dom_id(@picture, :edit_show), partial: 'show_card_body', locals: { picture: @picture } %>
   <% end %>
+<% elsif @is_index_page %>
+  <% if @picture.errors.any? %>
+    <%= turbo_stream.replace dom_id(@picture, :edit), partial: 'edit_index', locals: { picture: @picture, from: 'index' } %>
+  <% else %>
+    <%= turbo_stream.replace @picture, partial: 'picture', locals: { picture: @picture, from: 'index', path: ->(picture) { picture_path(picture) } } %>
+  <% end %>
 <% else %>
   <% if @picture.errors.any? %>
-    <%= turbo_stream.replace dom_id(@picture, :edit), partial: 'edit_index', locals: { picture: @picture } %>
+    <%= turbo_stream.replace dom_id(@picture, :edit), partial: 'edit_index', locals: { picture: @picture, from: '' } %>
   <% else %>
-    <%= turbo_stream.replace @picture, partial: 'picture', locals: { picture: @picture } %>
+    <%= turbo_stream.replace @picture, partial: 'picture', locals: { picture: @picture, from: '', path: ->(picture) { slide_show_picture_path(picture) } } %>
   <% end %>
 <% end %>

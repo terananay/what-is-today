@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   resources :pictures do
     get 'daily_pictures', on: :collection
     get 'edit_cancel', on: :member
+    get 'slide_show', on: :member
   end
 end
