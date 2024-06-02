@@ -38,7 +38,7 @@ ja:
     index:
       title: 写真一覧
       sort: 並び替え：
-      title_and_memo: タイトル,memo
+      title_and_memo: タイトル, memo
   flash:
     login: ログインしました
     login_failed: メールアドレスまたはパスワードが間違っています

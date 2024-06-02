@@ -54,6 +54,19 @@ h3 {
 .uk-button-primary:hover {
   background-color: #029199;
 }
+.uk-light .uk-slidenav {
+  color: #1eadb4cf;
+}
+.uk-light .uk-slidenav:hover {
+  color: #029199;
+}
+.uk-icon-link {
+  color: #1eadb4cf;
+}
+.uk-icon-link:hover {
+  color: #029199;
+}
+
 .uk-alert-success {
   background-color: #c8eff0;
   color: #009da5;
@@ -85,9 +98,30 @@ h3 {
 .page.current {
   padding: 9px;
 }
-.uk-width-1-1\@s {
-  min-width: 350px;
+.uk-navbar-container:not(.uk-navbar-transparent) {
+  background: white;
 }
-.uk-flex-row\@s {
-  min-width: 350px;
+@media (min-width: 725px) {
+  .uk-width-auto\@72 {
+    width: auto;
+  }
+  .uk-child-width-expand\@s > :not([class*="uk-width"]) {
+    flex: 1;
+    min-width: 1px;
+  }
+  .uk-flex-middle\@72 {
+    align-items: center;
+  }
+  .uk-width-expand\@72 {
+    flex: 1;
+    min-width: 1px;
+  }
+  .uk-margin-left\@72 {
+    margin-left: 15px !important;
+  }
+}
+@media (max-width: 372px) {
+  .uk-button {
+    padding: 0px 20px;
+  }
 }

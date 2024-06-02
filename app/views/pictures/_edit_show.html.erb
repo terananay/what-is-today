@@ -4,7 +4,7 @@
     <%= render 'shared/error_messages', object: f.object %>
     <%= render 'form', f: f %>
     <%= f.hidden_field :from, value: 'show' %>
-    <div class="uk-flex uk-flex-right uk-margin-small-top uk-margin-small-right">
+    <div class="uk-flex uk-flex-center uk-flex-right@s">
       <%= f.submit t('helpers.submit.update'), class: 'uk-border-rounded uk-button uk-margin-small-right uk-button-primary uk-button-small' %>
       <%= link_to t('link.cancel'), edit_cancel_picture_path(picture, params: { from: 'show' }), data: { turbo_stream: true }, class: 'uk-border-rounded uk-button uk-button-default uk-button-small white-background-button' %>
     </div>
