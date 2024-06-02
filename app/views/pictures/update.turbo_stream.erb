@@ -17,3 +17,4 @@
     <%= turbo_stream.replace @picture, partial: 'picture', locals: { picture: @picture, from: '', path: ->(picture) { slide_show_picture_path(picture) } } %>
   <% end %>
 <% end %>
+

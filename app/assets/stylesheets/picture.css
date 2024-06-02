@@ -14,13 +14,20 @@
   font-size: large;
   font-weight: 350;
 }
+/* アイコンを目立たさるための囲い部分 */
 .scroll-top {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 13px 10px;
 }
+/* アイコンを目立たさるための囲い部分 */
 .slide-nav {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 9px 13px;
+  z-index: 10;
+}
+.slide-nav:hover {
+  background-color: rgba(255, 255, 255);
+  z-index: 10;
 }
 .uk-overlay {
   padding: 5px 5px;
@@ -35,4 +42,7 @@
   display: block; /* ブロック要素として表示 */
   width: 100%; /* 親要素の幅に合わせる */
   box-sizing: border-box; /* パディングとボーダーを含めた幅計算 */
+}
+.ml-0 {
+  margin-left: 0px;
 }

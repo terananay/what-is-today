@@ -1,6 +1,6 @@
 <h1 class="uk-border-rounded overlay uk-margin-top"><%= @title %></h1>
 <%= render 'shared/flash_message' %>
-<%= render 'search_form', form_url: daily_pictures_pictures_path, class: 'uk-overlay uk-overlay-default' %>
+<%= render 'search_form', form_url: daily_pictures_pictures_path %>
 <div class="uk-width-1-1">
   <% @pictures_by_year.each do |year, pictures| %>
     <h3><%= year %></h3>

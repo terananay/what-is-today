@@ -1,14 +1,21 @@
-<div class="uk-width-3-4@m uk-width-1-1@s white-background uk-padding-small uk-margin-large-bottom uk-border-rounded uk-box-shadow-small">
-  <%= search_form_for @q, url: form_url, class: "uk-search uk-search-default uk-width-1-1 uk-flex uk-flex-row@m uk-flex-center@m uk-flex-bottom@m" do |f| %>
-    <div class="uk-width-auto uk-margin-right uk-flex uk-flex-column@m uk-flex-row@s">
-      <%= f.label :title_or_memo_cont, t('pictures.index.title_and_memo'), class: 'uk-padding-small-right uk-padding-remove-left' %>
-      <%= f.search_field :title_or_memo_cont, class: "uk-search-input uk-width-auto uk-margin-small", aria_label: "Search" %>
-    </div>
-    <div class="uk-width-auto uk-flex uk-flex-middle uk-margin-small-bottom">
-      <%= f.submit '検索', class: "uk-button uk-button-primary uk-border-rounded uk-margin-right" %>
-      <span><%= t('pictures.index.sort') %></span>
-      <%= sort_link(@q, :shooting_date, t('activerecord.attributes.picture.shooting_date'), class: 'uk-margin-small-right') %>
-      <%= sort_link(@q, :created_at, t('activerecord.attributes.picture.created_at'), default_order: :desc, class: 'uk-margin-small-right') %>
-    </div>
-  <% end %>
+<div class="uk-width-1-1 uk-width-auto@72 uk-padding-small ml-0 uk-margin-large-bottom white-background uk-border-rounded uk-box-shadow-small">
+  
+    <%= search_form_for @q, url: form_url, class: "uk-search uk-search-default uk-width-1-1" do |f| %>
+     <div class="uk-grid-small uk-child-width-1-1 uk-child-width-expand@72 uk-flex-middle@72" uk-grid>
+     <div class="uk-width-auto@72">
+        <%= f.label :title_or_memo_cont, t('pictures.index.title_and_memo') %>
+        </div>
+        <div class="uk-flex uk-width-expand@72">
+          <%= f.search_field :title_or_memo_cont, class: "uk-search-input uk-width-medium", aria_label: "Search" %>
+          <%= f.submit '検索', class: "uk-button uk-button-primary uk-border-rounded uk-margin-small-left" %>
+        </div>
+        <div class="uk-margin-left@72 uk-width-auto@72">
+        <%= t('pictures.index.sort') %>
+        <%= sort_link(@q, :shooting_date, t('activerecord.attributes.picture.shooting_date'), class: 'uk-margin-small-left') %>
+        <%= sort_link(@q, :created_at, t('activerecord.attributes.picture.created_at'), default_order: :desc, class: 'uk-margin-small-left') %>
+     </div>
+      </div>
+    <% end %>
+ 
 </div>
+
