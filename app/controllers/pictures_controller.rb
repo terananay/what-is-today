@@ -115,8 +115,14 @@ class PicturesController < ApplicationController
   end
 
   def search_poictures
-    @q = current_user.pictures.ransack(params[:q])
-    @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(12)
+    if params[:q] !=nil
+      params[:q][:title_or_memo_cont_any] = params[:q][:title_or_memo_cont_any].split(/[\p{blank}\s]+/)
+      @q = current_user.pictures.ransack(params[:q])
+      @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(12)
+    else
+      @q = current_user.pictures.ransack(params[:q])
+      @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(12)
+    end
   end
 
   def search_results_or_base(base_scope)
