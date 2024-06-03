@@ -105,7 +105,7 @@ h3 {
   .uk-width-auto\@72 {
     width: auto;
   }
-  .uk-child-width-expand\@s > :not([class*="uk-width"]) {
+  .uk-child-width-expand\@72 > :not([class*="uk-width"]) {
     flex: 1;
     min-width: 1px;
   }
@@ -124,4 +124,12 @@ h3 {
   .uk-button {
     padding: 0px 20px;
   }
+}
+.uk-link,
+a {
+  color: #1b969c;
+}
+.uk-link,
+a:hover {
+  color: #0c6a78;
 }
