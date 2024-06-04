@@ -3,7 +3,8 @@
 # controllers/pictures_controller.rb
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[show edit edit_cancel update destroy]
-  before_action :search_poictures, only: %i[index daily_pictures slide_show]
+  before_action :search_poictures, only: %i[index daily_pictures]
+  after_action :store_pictures_in_session, only: %i[daily_pictures]
 
   def new
     @picture = Picture.new
@@ -64,7 +65,15 @@ class PicturesController < ApplicationController
   end
 
   def slide_show
+    if session[:pictures_by_year].present?
+      @pictures = Picture.where(id: session[:pictures_by_year])
 
+      # クリックしたpictureのidを取得
+      clicked_picture_id = params[:id].to_i
+
+      # クリックしたpictureを先頭に持ってくる
+      @pictures = @pictures.sort_by { |picture| picture.id == clicked_picture_id ? 0 : 1 }
+    end
   end
 
   private
@@ -126,11 +135,15 @@ class PicturesController < ApplicationController
   end
 
   def search_results_or_base(base_scope)
-    if params[:q].blank? || params[:q][:title_or_memo_cont].blank?
+    if params[:q].blank? || params[:q][:title_or_memo_cont_any].blank?
       @q = base_scope.ransack(params[:q])
       @pictures = @q.result.with_attached_image.page(params[:page]).per(12)
     else
       @title = nil
     end
+  end
+
+  def store_pictures_in_session
+    session[:pictures_by_year] = @pictures.pluck(:id) if @pictures.present?
   end
 end
