@@ -124,20 +124,22 @@ class PicturesController < ApplicationController
   end
 
   def search_poictures
-    if params[:q] !=nil
-      params[:q][:title_or_memo_cont_any] = params[:q][:title_or_memo_cont_any].split(/[\p{blank}\s]+/)
+    if params[:q].present? && params[:q][:title_or_memo_cont_any].present?
+      if params[:q][:title_or_memo_cont_any].is_a?(String)
+        params[:q][:title_or_memo_cont_any] = params[:q][:title_or_memo_cont_any].split(/[\p{blank}\s]+/)
+      end
       @q = current_user.pictures.ransack(params[:q])
-      @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(12)
+      @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(20)
     else
       @q = current_user.pictures.ransack(params[:q])
-      @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(12)
+      @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(20)
     end
   end
 
   def search_results_or_base(base_scope)
     if params[:q].blank? || params[:q][:title_or_memo_cont_any].blank?
       @q = base_scope.ransack(params[:q])
-      @pictures = @q.result.with_attached_image.page(params[:page]).per(12)
+      @pictures = @q.result.with_attached_image.page(params[:page]).per(20)
     else
       @title = nil
     end

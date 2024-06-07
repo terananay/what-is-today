@@ -4,7 +4,7 @@
       <%= link_to t('link.home'), root_path, class: "uk-navbar-left uk-link-reset" %>
       <div class="uk-navbar-right">
         <% if current_user %>
-          <%= current_user.email.split('@').first %>
+          <%#= current_user.email.split('@').first %>
           <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href="#"></a>
           <div class="uk-navbar-dropdown">
             <ul class="uk-nav uk-navbar-dropdown-nav">
