@@ -1,4 +1,6 @@
-<h1 class="uk-border-rounded overlay uk-margin-top"><%= @title %></h1>
+<% if @title != nil %>
+<h1 class="uk-border-rounded overlay subcolor-b uk-margin-top"><%= @title %></h1>
+<% end %>
 <%= render 'shared/flash_message' %>
 <%= render 'search_form', form_url: daily_pictures_pictures_path %>
 <div class="uk-width-1-1">

@@ -49,3 +49,6 @@
 .mx-h1200 {
   max-height: 1200px;
 }
+.pd-label {
+  padding: 14px 8px 2px 2px;
+}

@@ -57,7 +57,6 @@ class PicturesController < ApplicationController
     result = current_user.pictures.base_scope_and_title
     @title = result[:title]
     base_scope = result[:base_scope]
-
     # 検索がなければ基本を表示
     search_results_or_base(base_scope)
     # 年毎に表示
@@ -128,24 +127,22 @@ class PicturesController < ApplicationController
       if params[:q][:title_or_memo_cont_any].is_a?(String)
         params[:q][:title_or_memo_cont_any] = params[:q][:title_or_memo_cont_any].split(/[\p{blank}\s]+/)
       end
-      @q = current_user.pictures.ransack(params[:q])
-      @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(20)
-    else
-      @q = current_user.pictures.ransack(params[:q])
-      @pictures = @q.result(distinct: true).with_attached_image.page(params[:page]).per(20)
     end
+    @q = current_user.pictures.includes(image_attachment: :blob).ransack(params[:q])
+    @pictures = @q.result(distinct: true).page(params[:page])
   end
 
   def search_results_or_base(base_scope)
-    if params[:q].blank? || params[:q][:title_or_memo_cont_any].blank?
-      @q = base_scope.ransack(params[:q])
-      @pictures = @q.result.with_attached_image.page(params[:page]).per(20)
+    if params[:q].blank? || params[:q][:title_or_memo_cont_any].blank? && params[:q][:shooting_year_eq].blank? && params[:q][:shooting_month_eq].blank? && params[:q][:shooting_day_eq].blank?
+      @q = base_scope.includes(image_attachment: :blob).ransack(params[:q])
+      @pictures = @q.result.page(params[:page])
     else
       @title = nil
     end
   end
 
   def store_pictures_in_session
+    # daily_pictureの@picturesをslideへ引き継ぐために保存
     session[:pictures_by_year] = @pictures.pluck(:id) if @pictures.present?
   end
 end
