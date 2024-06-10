@@ -31,7 +31,7 @@ class Picture < ApplicationRecord
   attr_accessor :tempfile_path
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[title memo shooting_date created_at]
+    %w[title memo shooting_date created_at shooting_year shooting_month shooting_day]
   end
 
   def self.ransackable_associations(_auth_object = nil)
@@ -72,5 +72,17 @@ class Picture < ApplicationRecord
 
   def image_attached
     errors.add(:image, I18n.t('validate.image_blank')) unless image.attached?
+  end
+
+  ransacker :shooting_year do
+    Arel.sql('EXTRACT(YEAR FROM shooting_date)')
+  end
+
+  ransacker :shooting_month do
+    Arel.sql('EXTRACT(MONTH FROM shooting_date)')
+  end
+
+  ransacker :shooting_day do
+    Arel.sql('EXTRACT(DAY FROM shooting_date)')
   end
 end

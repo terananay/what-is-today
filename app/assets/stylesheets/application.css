@@ -46,7 +46,10 @@ h3 {
   background: rgb(53, 29, 6);
 }
 .base_background {
-  background-image: url("背景.jpg");
+  background-image: url("背景ribon.png"), url("背景base.jpg");
+  background-position: top, 0 0;
+  background-repeat: no-repeat, repeat;
+  background-size: 100% auto, contain;
 }
 .uk-button-primary {
   background-color: #1eacb4;
@@ -88,9 +91,12 @@ h3 {
   background-color: rgba(255, 255, 255, 0.772);
   padding: 5px 40px;
 }
-
+.subcolor-b {
+  border-bottom: 1px solid hsla(7, 69%, 90%, 0.7);
+  border-left: 1px solid hsla(7, 69%, 90%, 0.7);
+}
 .sub-color {
-  background-color: #f7d7d3;
+  color: #f7d7d3;
 }
 .point-color {
   color: #1eacb4;
@@ -101,22 +107,24 @@ h3 {
 .uk-navbar-container:not(.uk-navbar-transparent) {
   background: white;
 }
-@media (min-width: 725px) {
-  .uk-width-auto\@72 {
+@media (min-width: 694px) {
+  .uk-width-auto\@69 {
     width: auto;
   }
-  .uk-child-width-expand\@72 > :not([class*="uk-width"]) {
+  .uk-child-width-expand\@69 > :not([class*="uk-width"]) {
     flex: 1;
     min-width: 1px;
   }
-  .uk-flex-middle\@72 {
+  .uk-flex-middle\@69 {
     align-items: center;
+    justify-content: center;
   }
-  .uk-width-expand\@72 {
+  .uk-width-expand\@69 {
     flex: 1;
-    min-width: 1px;
+    min-width: 165px;
+    max-width: 175px;
   }
-  .uk-margin-left\@72 {
+  .uk-margin-left\@69 {
     margin-left: 15px !important;
   }
 }

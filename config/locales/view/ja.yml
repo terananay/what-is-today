@@ -40,6 +40,9 @@ ja:
       title: 写真一覧
       sort: 並び替え：
       title_and_memo: タイトル, memo
+      year: 年
+      month: 月
+      day: 日
   flash:
     login: ログインしました
     login_failed: メールアドレスまたはパスワードが間違っています
