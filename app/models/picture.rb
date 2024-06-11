@@ -20,13 +20,16 @@ class Picture < ApplicationRecord
 
   scope :checksums, -> { joins(image_attachment: :blob) }
   scope :allyears_on_same_date, lambda {
-    where(
+    where(Arel.sql(
       'EXTRACT(MONTH FROM shooting_date) = ? AND EXTRACT(DAY FROM shooting_date) = ?',
       Date.today.month,
       Date.today.day
-    )
+    ))
   }
-  scope :allyears_on_same_month, -> { where('EXTRACT(MONTH FROM shooting_date) = ?', Date.today.month) }
+  scope :allyears_on_same_month, -> { where(Arel.sql('EXTRACT(MONTH FROM shooting_date) = ?', Date.today.month)) }
+  scope :distinct_years, -> { distinct.pluck(Arel.sql('EXTRACT(YEAR FROM shooting_date)')).map(&:to_i) }
+  scope :distinct_month, -> { distinct.pluck(Arel.sql('EXTRACT(MONTH FROM shooting_date)')).map(&:to_i) }
+  scope :distinct_days, -> { distinct.pluck(Arel.sql('EXTRACT(DAY FROM shooting_date)')).map(&:to_i) }
 
   attr_accessor :tempfile_path
 

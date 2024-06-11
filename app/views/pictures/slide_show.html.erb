@@ -1,9 +1,9 @@
-<div class="uk-slider-container-offset uk-width-auto" uk-slider="center: true; autoplay: true; autoplay-interval: 4000; pause-on-hover: false">
+<div class="uk-slider-container-offset uk-width-1-1 uk-padding-remove-left uk-padding-remove-right" uk-slider="center: true; autoplay: true; autoplay-interval: 4000; pause-on-hover: false">
   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
     <div class="uk-slider-items uk-container-expand uk-grid uk-flex-middle">
       <% @pictures.each do |picture| %>
-        <div class="uk-container-3-4">
+        <div class="uk-container-expand">
           <%= image_tag url_for(picture.image), class: 'slide-picture uk-margin-small-bottom' %>
             <div class="slide-card uk-card uk-card-default uk-card-body uk-margin-small-bottom">
               <p class="uk-align-right uk-padding-small uk-padding-remove-top uk-margin-remove uk-text-small">
@@ -15,9 +15,7 @@
         </div>
       <% end %>
     </div>
-  <div class="uk-flex uk-flex-center">
-    <a class="uk-margin-right uk-hidden-hover uk-box-shadow-small uk-border-rounded slide-nav" href uk-slidenav-previous uk-slider-item="previous"></a>
-    <a class="uk-hidden-hover uk-box-shadow-small uk-border-rounded slide-nav" href uk-slidenav-next uk-slider-item="next"></a>
-  </div>
+    <a class="uk-position-center-left uk-hidden-hover uk-box-shadow-small uk-border-rounded slide-nav" href uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-hidden-hover uk-box-shadow-small uk-border-rounded slide-nav" href uk-slidenav-next uk-slider-item="next"></a>
   </div>
 </div>

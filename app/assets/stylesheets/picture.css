@@ -34,8 +34,8 @@
 }
 .slide-picture {
   display: block; /* ブロック要素として表示 */
-  width: 100%; /* 画像の幅を100%に設定 */
-  max-height: 500px;
+  width: auto; /* 画像の幅を100%に設定 */
+  max-height: 600px;
 }
 
 .slide-card {
@@ -49,6 +49,14 @@
 .mx-h1200 {
   max-height: 1200px;
 }
-.pd-label {
-  padding: 14px 8px 2px 2px;
+.padding-label {
+  padding: 14px 8px 0px 2px;
+}
+.padding-b2 {
+  padding-bottom: 6px;
+}
+@media (max-width: 360px) {
+  .f-size-13 {
+    font-size: 13px;
+  }
 }

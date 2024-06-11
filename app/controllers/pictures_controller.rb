@@ -3,8 +3,9 @@
 # controllers/pictures_controller.rb
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[show edit edit_cancel update destroy]
-  before_action :search_poictures, only: %i[index daily_pictures]
+  before_action :search_pictures, only: %i[index daily_pictures]
   after_action :store_pictures_in_session, only: %i[daily_pictures]
+  before_action :select_form_value, only: %i[index daily_pictures]
 
   def new
     @picture = Picture.new
@@ -122,7 +123,7 @@ class PicturesController < ApplicationController
     user_checksums.include?(checksum)
   end
 
-  def search_poictures
+  def search_pictures
     if params[:q].present? && params[:q][:title_or_memo_cont_any].present?
       if params[:q][:title_or_memo_cont_any].is_a?(String)
         params[:q][:title_or_memo_cont_any] = params[:q][:title_or_memo_cont_any].split(/[\p{blank}\s]+/)
@@ -133,7 +134,7 @@ class PicturesController < ApplicationController
   end
 
   def search_results_or_base(base_scope)
-    if params[:q].blank? || params[:q][:title_or_memo_cont_any].blank? && params[:q][:shooting_year_eq].blank? && params[:q][:shooting_month_eq].blank? && params[:q][:shooting_day_eq].blank?
+    if params[:q].blank? || params[:q].values.all?(&:blank?)
       @q = base_scope.includes(image_attachment: :blob).ransack(params[:q])
       @pictures = @q.result.page(params[:page])
     else
@@ -144,5 +145,11 @@ class PicturesController < ApplicationController
   def store_pictures_in_session
     # daily_pictureの@picturesをslideへ引き継ぐために保存
     session[:pictures_by_year] = @pictures.pluck(:id) if @pictures.present?
+  end
+
+  def select_form_value
+    @years = current_user.pictures.distinct_years.sort
+    @month = current_user.pictures.distinct_month.sort
+    @days = current_user.pictures.distinct_days.sort
   end
 end

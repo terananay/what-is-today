@@ -43,6 +43,7 @@ ja:
       year: 年
       month: 月
       day: 日
+      all: 全ての
   flash:
     login: ログインしました
     login_failed: メールアドレスまたはパスワードが間違っています
