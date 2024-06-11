@@ -107,28 +107,31 @@ h3 {
 .uk-navbar-container:not(.uk-navbar-transparent) {
   background: white;
 }
-@media (min-width: 694px) {
-  .uk-width-auto\@69 {
+@media (min-width: 567px) {
+  .uk-width-auto\@56 {
     width: auto;
   }
-  .uk-child-width-expand\@69 > :not([class*="uk-width"]) {
+  .uk-child-width-expand\@56 > :not([class*="uk-width"]) {
     flex: 1;
     min-width: 1px;
   }
-  .uk-flex-middle\@69 {
-    align-items: center;
-    justify-content: center;
-  }
-  .uk-width-expand\@69 {
+  .uk-width-expand\@56 {
     flex: 1;
     min-width: 165px;
     max-width: 175px;
   }
-  .uk-margin-left\@69 {
+  .uk-flex-bottom\@56 {
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .uk-margin-left\@56 {
     margin-left: 15px !important;
   }
+  .selectl-box\@56 {
+    max-width: 86px;
+  }
 }
-@media (max-width: 372px) {
+@media (max-width: 455px) {
   .uk-button {
     padding: 0px 20px;
   }
@@ -140,4 +143,7 @@ a {
 .uk-link,
 a:hover {
   color: #0c6a78;
+}
+.uk-select {
+  text-align: center;
 }

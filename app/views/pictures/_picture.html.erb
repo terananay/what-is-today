@@ -1,12 +1,26 @@
 <div id="<%= dom_id(picture) %>">
   <div class="uk-link-reset uk-display-block uk-card uk-card-default uk-width-1-1 uk-margin-small-bottom">
-    <%= link_to path.call(picture), class: "uk-card-media-top uk-flex uk-flex-column" do %>
-      <%= image_tag url_for(picture.image.variant(resize_to_limit: [300, 300])) %>
+    <% if from == 'index' %>
+      <%= link_to picture_path(picture), class: "uk-card-media-top uk-flex uk-flex-column" do %>
+        <%= image_tag url_for(picture.image.variant(resize_to_limit: [300, 300])) %>
+      <% end %>
+    <% elsif from == 'daily' %>
+      <%= link_to slide_show_picture_path(picture), class: "uk-card-media-top uk-flex uk-flex-column" do %>
+        <%= image_tag url_for(picture.image.variant(resize_to_limit: [300, 300])) %>
+      <% end %>
     <% end %>
+
       <%= turbo_frame_tag dom_id(picture, :edit) do %>
-        <%= link_to path.call(picture), class: "uk-card-body uk-flex-auto", data: { turbo_frame: '_top' } do %>
-          <p class="uk-card-title"><%= picture.title %></p>
-          <p class="uk-text-break"><%= simple_format(picture.memo) %></p>
+        <% if from == 'index' %>
+          <%= link_to picture_path(picture), class: "uk-card-body uk-flex-auto", data: { turbo_frame: '_top' } do %>
+            <p class="uk-card-title"><%= picture.title %></p>
+            <p class="uk-text-break"><%= simple_format(picture.memo) %></p>
+          <% end %>
+        <% elsif from == 'daily' %>
+          <%= link_to slide_show_picture_path(picture), class: "uk-card-body uk-flex-auto", data: { turbo_frame: '_top' } do %>
+            <p class="uk-card-title"><%= picture.title %></p>
+            <p class="uk-text-break"><%= simple_format(picture.memo) %></p>
+          <% end %>
         <% end %>
       <% end %>
   </div>

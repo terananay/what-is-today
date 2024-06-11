@@ -1,22 +1,27 @@
-<div class="uk-width-1-1 uk-width-auto@69 uk-padding-small ml-0 uk-margin-large-bottom white-background uk-border-rounded uk-box-shadow-small">
+<div class="uk-width-1-1 uk-width-auto@56 uk-padding-small ml-0 uk-margin-large-bottom white-background uk-border-rounded uk-box-shadow-small">
   <%= search_form_for @q, url: form_url, class: "uk-search uk-search-default uk-width-1-1" do |f| %>
-    <div class="uk-grid-small uk-child-width-1-1 uk-child-width-expand@69 uk-flex-middle@69" uk-grid>
-      <div class="uk-width-auto@69">
-        <%= f.label :title_or_memo_cont_any, t('pictures.index.title_and_memo') %>
-      </div>
-      <div class="uk-flex uk-width-expand@69">
+    <div class="uk-grid-small uk-child-width-1-1 uk-child-width-expand@56 uk-flex-bottom@56" uk-grid>
+      <div class="uk-form-stacked uk-width-expand@56">
+        <%= f.label :title_or_memo_cont_any, t('pictures.index.title_and_memo'), class: 'uk-form-label' %>
         <%= f.search_field :title_or_memo_cont_any, class: "uk-search-input", aria_label: "Search" %>
       </div>
-      <div class="uk-flex uk-margin-left@69 uk-width-auto@69">
-        <%= f.select :shooting_year_eq, (2019..2024).to_a,:include_blank => true, class: "uk-select", aria_label: "Select" %><span class="pd-label"><%= t('pictures.index.year') %></span>
-        <%= f.select :shooting_month_eq, (1..12).to_a,:include_blank => true, class: "uk-select", aria_label: "Select" %><span class="pd-label"><%= t('pictures.index.month') %></span>
-        <%= f.select :shooting_day_eq, (1..31).to_a,:include_blank => true, class: "uk-select", aria_label: "Select" %><span class="pd-label"><%= t('pictures.index.day') %></span>
-        <%= f.submit t('helpers.submit.search'), class: "uk-button uk-button-primary uk-border-rounded uk-margin-small-left" %>
+      <div class="uk-flex uk-margin-left@56 uk-width-auto@56">
+        <%= f.select :shooting_year_eq, @years.to_a, { include_blank: t('pictures.index.all') }, { class: "uk-select select-box f-size-13", aria_label: "Select" }  %>
+        <span class="padding-label uk-text-small"><%= t('pictures.index.year') %></span>
+
+        <%= f.select :shooting_month_eq, @month.to_a, { include_blank: t('pictures.index.all') }, { class: "uk-select select-box f-size-13", aria_label: "Select" } %>
+        <span class="padding-label uk-text-small"><%= t('pictures.index.month') %></span>
+
+        <%= f.select :shooting_day_eq, @days.to_a, { include_blank: t('pictures.index.all') }, { class: "uk-select select-box f-size-13", aria_label: "Select" } %>
+        <span class="padding-label uk-text-small"><%= t('pictures.index.day') %></span>
       </div>
-      <div class="uk-margin-left@69 uk-width-auto@69">
-        <%= t('pictures.index.sort') %>
-        <%= sort_link(@q, :shooting_date, t('activerecord.attributes.picture.shooting_date'), class: 'uk-margin-small-left') %>
-        <%= sort_link(@q, :created_at, t('activerecord.attributes.picture.created_at'), default_order: :desc, class: 'uk-margin-small-left') %>
+      <div class="uk-width-auto@56 uk-flex uk-flex-bottom">
+        <%= f.submit t('helpers.submit.search'), class: "uk-button uk-button-primary uk-border-rounded uk-margin-small-right" %>
+        <div class="padding-b2">
+          <%= t('pictures.index.sort') %>
+          <%= sort_link(@q, :shooting_date, t('activerecord.attributes.picture.shooting_date')) %>
+          <%= sort_link(@q, :created_at, t('activerecord.attributes.picture.created_at'), default_order: :desc, class: 'uk-margin-small-left') %>
+        </div>
       </div>
     </div>
   <% end %>
