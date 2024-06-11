@@ -7,7 +7,7 @@
   <% @pictures_by_year.each do |year, pictures| %>
     <h3><%= year %></h3>
     <div class="uk-child-width-1-2 uk-child-width-1-4@m" uk-grid="masonry: pack">
-      <%= render partial: 'picture', collection: pictures, as: :picture, locals: { from: '', path: ->(picture) { slide_show_picture_path(picture) } } %>
+      <%= render partial: 'picture', collection: pictures, as: :picture, locals: { from: 'daily', path: ->(picture) { slide_show_picture_path(picture) } } %>
     </div>
   <% end %>
 </div>

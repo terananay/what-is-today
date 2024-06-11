@@ -66,7 +66,7 @@ class PicturesController < ApplicationController
 
   def slide_show
     if session[:pictures_by_year].present?
-      @pictures = Picture.where(id: session[:pictures_by_year])
+      @pictures = current_user.pictures.where(id: session[:pictures_by_year]).includes(image_attachment: :blob)
 
       # クリックしたpictureのidを取得
       clicked_picture_id = params[:id].to_i

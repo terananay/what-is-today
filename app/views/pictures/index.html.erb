@@ -3,7 +3,7 @@
 <%= render 'search_form', form_url: pictures_path %>
 <div class="uk-width-1-1">
   <div class="uk-child-width-1-2 uk-child-width-1-4@m" uk-grid="masonry: pack">
-    <%= render partial: 'picture', collection: @pictures, as: :picture, locals: { path: ->(picture) { picture_path(picture) }, from: 'index' } %>
+    <%= render partial: 'picture', collection: @pictures, as: :picture, locals: { from: 'index' } %>
   </div>
 </div>
 <div class="uk-flex uk-flex-middle">
