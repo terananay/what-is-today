@@ -22,10 +22,4 @@ class UserSessionsController < ApplicationController
     logout
     redirect_to root_path, status: :see_other, success: t('flash.logout')
   end
-
-  private
-
-  def clear_pictures_from_session
-    session.delete(:pictures_by_year)
-  end
 end
