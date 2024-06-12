@@ -1,3 +1,4 @@
+<%= render 'shared/flash_message' %>
 <h1 class="uk-border-rounded overlay subcolor-b"><%= t'.title' %></h1>
 <ul class='uk-list uk-width-large uk-margin-large'>
   <li><%= t('.select_multiple') %></li>
@@ -6,7 +7,6 @@
   <li><%= t('.png_date') %></li>
 </ul>
 
-<%= render 'shared/flash_message' %>
 <%= form_with(model: @picture, url: pictures_path, local: true) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 

@@ -32,7 +32,7 @@ class PicturesController < ApplicationController
     if process_images(user_checksums)
       redirect_to daily_pictures_pictures_path, success: t('flash.picture_create')
     else
-      flash.now[:error] = t('flash.picture_failed')
+      flash.now[:danger] = t('flash.picture_failed')
       render :new, status: :unprocessable_entity
     end
   end

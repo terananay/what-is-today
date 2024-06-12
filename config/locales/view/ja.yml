@@ -7,9 +7,11 @@ ja:
       login: ログイン
       search: 検索
     picture_delete_confirm: 「画像」を削除します。よろしいですか？
+    user_delete_confirm: ユーザー削除します。よろしいですか？
   link:
     home: 今日は何の日？
     user_create: 新規登録
+    user_delete: 退会する
     login: ログイン
     logout: ログアウト
     new_picture: 新規写真登録
@@ -59,8 +61,9 @@ ja:
     login: ログインしました
     login_failed: メールアドレスまたはパスワードが間違っています
     logout: ログアウトしました
-    user_create: ユーザー登録が完了しました
+    user_create: 新規会員登録が完了しました
     user_failed: ユーザー登録に失敗しました
+    user_destroy: 退会しました
     google_login: Googleアカウントでログインしました
     google_failed: Googleアカウントでのログインに失敗しました
     please_login: ログインしてください
