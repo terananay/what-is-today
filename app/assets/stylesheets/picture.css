@@ -15,11 +15,6 @@
   font-weight: 350;
 }
 /* アイコンを目立たさるための囲い部分 */
-.scroll-top {
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 13px 10px;
-}
-/* アイコンを目立たさるための囲い部分 */
 .slide-nav {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 9px 13px;
@@ -59,4 +54,7 @@
   .f-size-13 {
     font-size: 13px;
   }
+}
+.margin-x-auto {
+  margin: 0 auto;
 }

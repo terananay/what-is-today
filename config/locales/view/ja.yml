@@ -19,9 +19,20 @@ ja:
     privacy_policy: プライバシーポリシー
     contact: お問い合わせ
     cancel: キャンセル
+  static_pages:
+    about:
+      title: 今日は何の日？
+      look_back_on_memories: 今日は何の日？は思い出を振り返るアプリです
+      photos_sorted_date: 保存した写真を撮影日で分類し、その日と同じ日の、全ての年の写真を表示するので
+      quick_easy_find: 何年前に何があったか？がパッとわかるようになります
+      will_trigger_new_memories: 過去の今日を思い返して、また新たな思い出のきっかけになれたらと思います
+      how_use: 使い方
+      display_same_day_as_today: 新規写真登録をすると、「同じ日の思い出」ページで今日と同じ日の写真を表示します
+      or_same_month_displayed: 今日と同じ日の写真がなかった場合、同じ月の写真が表示されます
+      saved_all_photos_list: 保存した全ての写真を見たい時は「保存済み写真一覧」から確認できます
   users:
     new:
-      title: ユーザー新規登録
+      title: 新規会員登録
       or: または
   user_sessions:
     new:

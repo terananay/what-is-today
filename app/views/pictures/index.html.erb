@@ -6,7 +6,11 @@
     <%= render partial: 'picture', collection: @pictures, as: :picture, locals: { from: 'index' } %>
   </div>
 </div>
-<div class="uk-flex uk-flex-middle">
-  <%= paginate @pictures, theme: 'uikit', left: 2, right: 2 %>
-  <a href="#" uk-totop uk-scroll class="pagination scroll-top uk-box-shadow-small uk-border-circle"></a>
+<div class="uk-width1-1 uk-flex uk-flex-center uk-flex-middle">
+  <div class="margin-x-auto">
+    <%= paginate @pictures, theme: 'uikit', left: 2, right: 2 %>
+  </div>
+  <div class="margin-r100@m margin-r20@95 scroll-top subcolor-b">
+    <a href="#" uk-totop uk-scroll class="pagination"></a>
+  </div>
 </div>

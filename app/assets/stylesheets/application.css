@@ -89,7 +89,7 @@ h3 {
 }
 .overlay {
   background-color: rgba(255, 255, 255, 0.772);
-  padding: 5px 40px;
+  padding: 5px 40px 8px 40px;
 }
 .subcolor-b {
   border-bottom: 1px solid hsla(7, 69%, 90%, 0.7);
@@ -146,4 +146,19 @@ a:hover {
 }
 .uk-select {
   text-align: center;
+}
+@media (min-width: 960px) {
+  .margin-r100\@m {
+    margin-right: 100px;
+  }
+}
+@media (max-width: 959px) {
+  .margin-r20\@95 {
+    margin-right: 20px;
+  }
+}
+.scroll-top {
+  padding: 1px 4px 8px 4px;
+  border-radius: 1%;
+  background-color: rgba(255, 255, 255, 0.7);
 }
