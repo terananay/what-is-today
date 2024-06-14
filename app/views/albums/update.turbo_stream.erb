@@ -1,0 +1,3 @@
+<%= turbo_stream.update 'flash_explanation', partial: 'shared/flash_message' %>
+<%= turbo_stream.update 'error_explanation', partial: 'shared/error_messages', locals: { object: @album } %>
+<%= turbo_stream.replace dom_id(@album, :edit), partial: 'album', locals: { album: @album } %>

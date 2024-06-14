@@ -159,6 +159,30 @@ a:hover {
 }
 .scroll-top {
   padding: 1px 4px 8px 4px;
-  border-radius: 1%;
+  border-radius: 10%;
   background-color: rgba(255, 255, 255, 0.7);
+}
+.padding-t {
+  padding-top: 6px;
+}
+.padding-b2 {
+  padding-bottom: 6px;
+}
+.padding-x8 {
+  padding: 0px 8px;
+}
+.paddig-y4x15 {
+  padding: 4px 15px;
+}
+.ml-0 {
+  margin-left: 0px;
+}
+.margin-x-auto {
+  margin: 0 auto;
+}
+.mb-4 {
+  margin-bottom: 4px;
+}
+.mb-34 {
+  margin-bottom: 34px;
 }

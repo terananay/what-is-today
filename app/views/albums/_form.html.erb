@@ -1,0 +1,12 @@
+<%= form_with model: album, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="uk-form-stacked uk-grid-small uk-flex uk-flex-bottom uk-padding" uk-grid>
+    <div class="uk-width-expand">
+      <%= f.label :title, t('albums.index.album_name'), class: 'uk-form-label' %>
+      <%= f.text_field :title, class: 'uk-margin-small-right uk-input', aria_label: "Input" %>
+    </div>
+    <div class="uk-width-auto mb-4">
+      <%= f.submit nil, class: 'uk-height-auto uk-border-rounded uk-button uk-button-primary uk-button-small' %>
+    </div>
+  </div>
+<% end %>
