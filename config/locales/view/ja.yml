@@ -1,13 +1,15 @@
 ja:
   helpers:
     submit:
-      create: 新規登録
+      create: 新規作成
       update: 更新
       save: 保存
       login: ログイン
       search: 検索
+      user_create: 新規登録
     picture_delete_confirm: 「画像」を削除します。よろしいですか？
     user_delete_confirm: ユーザー削除します。よろしいですか？
+    album_delete_confirm: アルバムを削除します。よろしいですか？
   link:
     home: 今日は何の日？
     user_create: 新規登録
@@ -21,6 +23,7 @@ ja:
     privacy_policy: プライバシーポリシー
     contact: お問い合わせ
     cancel: キャンセル
+    albums: album一覧
   static_pages:
     about:
       title: 今日は何の日？
@@ -57,6 +60,10 @@ ja:
       month: 月
       day: 日
       all: 全ての
+  albums:
+    index:
+      title: アルバム一覧
+      album_name: アルバム名
   flash:
     login: ログインしました
     login_failed: メールアドレスまたはパスワードが間違っています
@@ -71,6 +78,11 @@ ja:
     picture_failed: 保存できない画像があり中断しました。中断する前までの画像は保存されています。
     delete: 削除しました
     update: 更新しました
+    album_create: アルバムを作成しました
+    album_failed: アルバムの作成に失敗しました
+    album_update: アルバムを更新しました
+    album_update_failed: アルバムの更新に失敗しました
+    album_destroy: アルバムを削除しました
   validate:
     image_type: JPEG か PNGファイルのみアップロード可能です
     image_size: 画像サイズは4MBまでです

@@ -1,0 +1,10 @@
+<div id="<%= dom_id(album) %>">
+  <div class="uk-flex uk-flex-bottom uk-margin-top">
+    <span class="uk-link-reset uk-margin-small-right">
+      <%= "#{t('albums.index.album_name')} : " %>
+      <%= link_to album.title, album_path(album), id: dom_id(album, :edit) %>
+    </span>
+    <%= link_to "", edit_album_path(album), data: { turbo_stream: true }, class: "uk-icon-link padding-x8", "uk-icon" => "file-edit" %>
+    <%= link_to "", album_path(album), data: { turbo_method: :delete, turbo_confirm: t('helpers.album_delete_confirm') }, class: "uk-icon-link", "uk-icon" => "trash" %>
+  </div>
+</div>

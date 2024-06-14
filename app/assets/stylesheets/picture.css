@@ -38,23 +38,15 @@
   width: 100%; /* 親要素の幅に合わせる */
   box-sizing: border-box; /* パディングとボーダーを含めた幅計算 */
 }
-.ml-0 {
-  margin-left: 0px;
-}
 .mx-h1200 {
   max-height: 1200px;
 }
 .padding-label {
   padding: 14px 8px 0px 2px;
 }
-.padding-b2 {
-  padding-bottom: 6px;
-}
+
 @media (max-width: 360px) {
   .f-size-13 {
     font-size: 13px;
   }
-}
-.margin-x-auto {
-  margin: 0 auto;
 }
