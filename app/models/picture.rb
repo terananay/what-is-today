@@ -16,7 +16,7 @@ class Picture < ApplicationRecord
   validate :image_size
   validate :image_attached
 
-  before_save :shooting_date_set, if: :new_record?
+  before_create :shooting_date_set
 
   scope :checksums, -> { joins(image_attachment: :blob) }
   scope :allyears_on_same_date, lambda {

@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: %i[show edit update destroy edit_cancel]
+  before_action :set_album, only: %i[edit update destroy edit_cancel]
 
   def index
     @albums = current_user.albums.all
@@ -7,7 +7,11 @@ class AlbumsController < ApplicationController
     @album = Album.new
   end
 
-  def show;end
+  def show
+    @album = current_user.albums.includes(:pages).find(params[:id])
+    @pages = @album.pages
+    @page = Page.new
+  end
 
   def edit;end
 
