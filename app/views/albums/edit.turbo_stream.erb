@@ -2,9 +2,9 @@
 <%= turbo_stream.update 'error_explanation', partial: 'shared/error_messages', locals: { object: @album } %>
 
 <%= turbo_stream.replace dom_id(@album) do %>
-<div id="<%= dom_id(@album, :edit) %>" class="uk-flex uk-flex-bottom">
+<div id="<%= dom_id(@album, :edit) %>" class="flex-bottom@49">
   <%= render 'form', album: @album %>
-  <div class="mb-34">
+  <div class="mb-34 cancel-margin">
     <%= link_to t('link.cancel'), edit_cancel_album_path(@album), data: { turbo_stream: true }, class: 'paddig-y4x15 uk-text-small uk-border-rounded uk-button uk-button-default uk-button-small white-background-button' %>
   </div>
 </div>

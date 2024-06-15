@@ -1,1 +1,13 @@
-<%= @album.title  %>
+<%= render 'shared/flash_message' %>
+<h1 class="uk-border-rounded overlay subcolor-b"><%= @album.title  %></h1>
+
+<%= link_to t('.new_page'), album_pages_path(@album), data: { "turbo-method": :post }, class: 'uk-margin' %>
+
+<% @pages.each do |page| %>
+  <div class="uk-flex uk-flex-bottom uk-margin">
+    <%= link_to page.page_number, page_path(page) %>
+    <div class="uk-margin-left">
+      <%= link_to "", page_path(page), data: { turbo_method: :delete, turbo_confirm: t('helpers.page_delete_confirm') }, class: "uk-icon-link", "uk-icon" => "trash" %>
+    </div>
+  </div>
+<% end %>
