@@ -1,0 +1,33 @@
+<div class="uk-grid uk-width-1-1">
+  <div class="uk-width-3-4">
+    <%= form_with(model: @page, url: page_path(@page), method: :put, id: "page_form") do |form| %>
+      <div class="height-400_1000 padding-l0 album-page-background">
+        <div id="picture_left">
+          <% @page_pictures.each do |page_picture| %>
+            <div class="srt_hndl uk-flex uk-flex-center" page-picture-id="<%= page_picture.picture.id %>">
+              <%= image_tag url_for(page_picture.picture.image.variant(resize_to_limit: [600, 600])) %>
+            </div>
+          <% end %>
+        </div>
+        <p class="text-center"><%= t('.drag_and_drop') %></p>
+      </div>
+        <p class="text-center"><%= t('.two_picture_save') %>
+        <br><%= t('.return_the_picture') %></p>
+        <%= form.hidden_field :picture_ids, value: [], multiple: true %>
+        <div class="uk-flex uk-flex-center uk-padding-small">
+          <%= form.submit nil , class: 'uk-border-rounded uk-button uk-button-primary'%>
+        </div>
+    <% end %>
+  </div>
+  <div class="uk-width-1-4 scrollable-sidebar">
+    <div id="picture_right">
+      <% @pictures.each do |picture| %>
+        <div picture-id="<%= picture.id %>" class="srt_hndl uk-flex uk-flex-center">
+          <%= image_tag url_for(picture.image.variant(resize_to_limit: [600, 600]))%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script type="module">import "page_sortable";</script>

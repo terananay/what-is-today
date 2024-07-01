@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_14_101458) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_20_084041) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,13 +60,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_14_101458) do
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
   end
 
+  create_table "page_pictures", force: :cascade do |t|
+    t.bigint "page_id", null: false
+    t.bigint "picture_id", null: false
+    t.integer "position", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id", "picture_id"], name: "index_page_pictures_on_page_id_and_picture_id", unique: true
+    t.index ["page_id", "position"], name: "index_page_pictures_on_page_id_and_position", unique: true
+    t.index ["page_id"], name: "index_page_pictures_on_page_id"
+    t.index ["picture_id"], name: "index_page_pictures_on_picture_id"
+  end
+
   create_table "pages", force: :cascade do |t|
     t.bigint "album_id", null: false
     t.integer "page_number", null: false
     t.boolean "is_sample", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["album_id", "page_number"], name: "index_pages_on_album_id_and_page_number", unique: true
     t.index ["album_id"], name: "index_pages_on_album_id"
   end
 
@@ -95,6 +106,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_14_101458) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "albums", "users"
+  add_foreign_key "page_pictures", "pages"
+  add_foreign_key "page_pictures", "pictures"
   add_foreign_key "pages", "albums"
   add_foreign_key "pictures", "users"
 end

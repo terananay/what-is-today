@@ -1,0 +1,12 @@
+<div class="height-400_1000 album-page-background">
+  <div class= "margin-y40">
+    <% @page_pictures.each do |page_picture| %>
+      <div class="uk-flex uk-flex-center uk-padding">
+        <%= image_tag url_for(page_picture.picture.image.variant(resize_to_limit: [600, 600])) %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="ml-auto padding-r8t8">
+  <%= link_to t('link.page_edit'), edit_page_path(@page) %>
+</div>

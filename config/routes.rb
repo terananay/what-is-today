@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   resources :albums, only: %i[index show edit create update destroy] do
     get 'edit_cancel', on: :member
-    resources :pages, only: %i[show edit create update destroy], shallow: true
+    resources :pages, only: %i[show edit create update destroy], shallow: true do
+      resources :page_pictures, only: %i[create update destroy]
+    end
   end
 end

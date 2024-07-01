@@ -165,8 +165,14 @@ a:hover {
 .padding-t {
   padding-top: 6px;
 }
-.padding-b2 {
+.padding-t16 {
+  padding-top: 16px;
+}
+.padding-b6 {
   padding-bottom: 6px;
+}
+.padding-l0 {
+  padding-left: 0px;
 }
 .padding-x8 {
   padding: 0px 8px;
@@ -177,8 +183,14 @@ a:hover {
 .ml-0 {
   margin-left: 0px;
 }
+.ml-auto {
+  margin-left: auto;
+}
 .margin-x-auto {
   margin: 0 auto;
+}
+.margin-y40 {
+  margin: 40px 0px;
 }
 .mb-4 {
   margin-bottom: 4px;
