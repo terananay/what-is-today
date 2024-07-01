@@ -25,6 +25,7 @@ ja:
     contact: お問い合わせ
     cancel: キャンセル
     albums: album一覧
+    page_edit: ページ編集
   static_pages:
     about:
       title: 今日は何の日？
@@ -67,6 +68,11 @@ ja:
       album_name: アルバム名
     show:
       new_page: 新規ページ作成
+  pages:
+    edit:
+      drag_and_drop: ここに画像をドラッグ&ドロップしてください
+      two_picture_save: 右の写真をドラッグ&ドロップしてページに2枚まで保存できます
+      return_the_picture: 2枚を超えた時は右に写真を戻してから保存してください
   flash:
     login: ログインしました
     login_failed: メールアドレスまたはパスワードが間違っています
@@ -95,6 +101,7 @@ ja:
     image_type: JPEG か PNGファイルのみアップロード可能です
     image_size: 画像サイズは4MBまでです
     image_blank: 画像を選択してください
+    used_picture: アルバムに保存済の写真と重複しています
   date:
     formats:
       default: "%Y/%m/%d"

@@ -6,6 +6,8 @@ require 'mini_exiftool'
 class Picture < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_many :page_pictures
+  has_many :pages, through: :page_pictures
 
   validates :title, length: { maximum: 25 }
   validates :memo, length: { maximum: 200 }
